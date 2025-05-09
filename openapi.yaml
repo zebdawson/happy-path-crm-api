@@ -42,20 +42,6 @@ paths:
         "201":
           description: Lead successfully submitted
 
-  /followup/leads/{id}/followup:
-    post:
-      tags: [Follow-Up Pathway]
-      summary: Trigger a follow-up automation for a lead
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Follow-up triggered
-
   /ratings/requests:
     post:
       tags: [Ratings Boost Pro]
