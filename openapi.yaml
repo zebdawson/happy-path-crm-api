@@ -28,7 +28,7 @@ tags:
     description: AI workflow automations and client outreach tools
 
 paths:
-  /followup/leads:
+  /leads:
     get:
       tags: [Follow-Up Pathway]
       summary: Retrieve all CRM leads (demo/mocked)
@@ -192,4 +192,3 @@ components:
           type: array
           items:
             type: string
-
