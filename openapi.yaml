@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Happy Path Marketing API
   version: "1.0.0"
@@ -30,6 +30,7 @@ tags:
 paths:
   /leads:
     post:
+      operationId: submitLead
       tags: [Follow-Up Pathway]
       summary: Add a new lead to the CRM via your backend
       requestBody:
@@ -44,6 +45,7 @@ paths:
 
   /ratings/requests:
     post:
+      operationId: sendReviewRequest
       tags: [Ratings Boost Pro]
       summary: Send a review request to customers
       requestBody:
@@ -58,6 +60,7 @@ paths:
 
   /ratings/summary:
     get:
+      operationId: getReviewSummary
       tags: [Ratings Boost Pro]
       summary: Get a summary of customer reviews
       responses:
@@ -70,6 +73,7 @@ paths:
 
   /servicepath/automations:
     post:
+      operationId: triggerAutomation
       tags: [ServicePath]
       summary: Trigger an AI automation workflow
       requestBody:
@@ -84,6 +88,7 @@ paths:
 
   /servicepath/campaigns:
     post:
+      operationId: launchCampaign
       tags: [ServicePath]
       summary: Launch an email or SMS campaign
       requestBody:
