@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "name_for_human": "Happy Path CRM Assistant",
+  "name_for_model": "happy_path_crm",
+  "description_for_human": "Learn about CRM tools and submit leads.",
+  "description_for_model": "Helps users explore our CRM and submit leads via /leads endpoint.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://zebdawson.github.io/openapi.yaml"
+  },
+  "logo_url": "https://zebdawson.github.io/logo.png",
+  "contact_email": "support@happypathmarketing.com",
+  "legal_info_url": "https://www.happypathmarketing.com/legal"
+}
