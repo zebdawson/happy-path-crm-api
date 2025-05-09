@@ -1,21 +1,20 @@
-from flask_cors import CORS
-
-app = Flask(__name__)
-CORS(app)
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS after app is defined
 
-# Load email and SMTP config from environment variables
+# SMTP config
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 EMAIL_TO = os.getenv("EMAIL_TO")
+
 @app.route("/", methods=["GET"])
 def root():
     return "Happy Path CRM API is live!"
@@ -31,7 +30,6 @@ def collect_lead():
     phone = data.get('phone')
     source = data.get('source', 'ChatGPT Assistant')
 
-    # Create the email message
     msg = MIMEMultipart()
     msg['From'] = SMTP_USERNAME
     msg['To'] = EMAIL_TO
@@ -47,7 +45,6 @@ def collect_lead():
     """
     msg.attach(MIMEText(body, 'plain'))
 
-    # Send the email
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
