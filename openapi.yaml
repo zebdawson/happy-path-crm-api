@@ -14,7 +14,7 @@ info:
   termsOfService: https://www.happypathmarketing.com/legal
   license:
     name: Privacy Policy
-    url: https://www.happypathmarketing.com/privacy
+    url: https://happypath.marketing/hpm-privacy-policy
 
 servers:
   - url: https://happy-path-crm-api.onrender.com
