@@ -1,0 +1,16 @@
+services:
+- type: web
+  name: happy-path-crm-api
+  env: python
+  buildCommand: ""
+  startCommand: "python main.py"
+  envVars:
+    - key: SMTP_USERNAME
+      fromDatabase:
+        name: SMTP_USERNAME
+    - key: SMTP_PASSWORD
+      fromDatabase:
+        name: SMTP_PASSWORD
+    - key: EMAIL_TO
+      fromDatabase:
+        name: EMAIL_TO
