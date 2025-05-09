@@ -12,6 +12,9 @@ SMTP_PORT = 587
 SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 EMAIL_TO = os.getenv("EMAIL_TO")
+@app.route("/", methods=["GET"])
+def root():
+    return "Happy Path CRM API is live!"
 
 @app.route('/leads', methods=['POST'])
 def collect_lead():
