@@ -1,1 +1,195 @@
+openapi: 3.0.0
+info:
+  title: Happy Path Marketing API
+  version: "1.0.0"
+  description: |
+    This API allows access to Happy Path Marketing's core services:
+    Follow-Up Pathway (CRM and automation), Ratings Boost Pro (review generation),
+    and ServicePath (AI workflow and campaign tools). Designed for integration
+    with AI agents via the Model Context Protocol (MCP).
+  contact:
+    email: support@happypathmarketing.com
+    url: https://www.happypathmarketing.com
+    name: Happy Path Marketing
+  termsOfService: https://www.happypathmarketing.com/legal
+  license:
+    name: Privacy Policy
+    url: https://www.happypathmarketing.com/privacy
+
+servers:
+  - url: https://happy-path-crm-api.onrender.com
+
+tags:
+  - name: Follow-Up Pathway
+    description: Lead management and CRM workflows
+  - name: Ratings Boost Pro
+    description: Review and reputation automation
+  - name: ServicePath
+    description: AI workflow automations and client outreach tools
+
+paths:
+  /followup/leads:
+    get:
+      tags: [Follow-Up Pathway]
+      summary: Retrieve all CRM leads (demo/mocked)
+      responses:
+        "200":
+          description: List of leads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lead'
+    post:
+      tags: [Follow-Up Pathway]
+      summary: Add a new lead to the CRM via your backend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+      responses:
+        "201":
+          description: Lead successfully submitted
+
+  /followup/leads/{id}/followup:
+    post:
+      tags: [Follow-Up Pathway]
+      summary: Trigger a follow-up automation for a lead
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Follow-up triggered
+
+  /ratings/requests:
+    post:
+      tags: [Ratings Boost Pro]
+      summary: Send a review request to customers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequest'
+      responses:
+        "200":
+          description: Review requests sent
+
+  /ratings/summary:
+    get:
+      tags: [Ratings Boost Pro]
+      summary: Get a summary of customer reviews
+      responses:
+        "200":
+          description: Review summary returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewSummary'
+
+  /servicepath/automations:
+    post:
+      tags: [ServicePath]
+      summary: Trigger an AI automation workflow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowRequest'
+      responses:
+        "200":
+          description: Workflow successfully triggered
+
+  /servicepath/campaigns:
+    post:
+      tags: [ServicePath]
+      summary: Launch an email or SMS campaign
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignRequest'
+      responses:
+        "200":
+          description: Campaign launched successfully
+
+components:
+  schemas:
+    Lead:
+      type: object
+      required: [name, email]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        source:
+          type: string
+
+    ReviewRequest:
+      type: object
+      required: [contacts]
+      properties:
+        contacts:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+              phone:
+                type: string
+
+    ReviewSummary:
+      type: object
+      properties:
+        average_rating:
+          type: number
+        total_reviews:
+          type: integer
+        recent_comments:
+          type: array
+          items:
+            type: string
+
+    WorkflowRequest:
+      type: object
+      required: [workflow_id, lead_id]
+      properties:
+        workflow_id:
+          type: string
+        lead_id:
+          type: string
+        context:
+          type: object
+          additionalProperties: true
+
+    CampaignRequest:
+      type: object
+      required: [type, message, targets]
+      properties:
+        type:
+          type: string
+          enum: [email, sms]
+        message:
+          type: string
+        targets:
+          type: array
+          items:
+            type: string
 
