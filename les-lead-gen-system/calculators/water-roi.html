@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Filtration ROI Calculator | Phoenix Water Savings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-blue-700">[Your Company Name]</a>
+                <a href="../services/water-filtration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-bold">Get FREE Water Test</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900">Water Filtration ROI Calculator</h1>
+                <p class="text-center text-gray-600 mb-12 text-lg">See exactly how much you'll save with a reverse osmosis system</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Calculator Form -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900">Your Current Spending</h2>
+
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Household Size</label>
+                                <input type="number" id="householdSize" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg" value="4">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Bottles of Water Per Person Per Week</label>
+                                <input type="number" id="bottlesPerWeek" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg" value="10">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Cost Per Bottle ($)</label>
+                                <input type="number" step="0.01" id="costPerBottle" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg" value="1.50">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">How often do you replace major appliances?</label>
+                                <select id="applianceLife" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg">
+                                    <option value="5">Every 5 years (Hard water damage)</option>
+                                    <option value="8" selected>Every 8 years (Normal)</option>
+                                    <option value="12">Every 12 years (Good water quality)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Average Appliance Replacement Cost</label>
+                                <input type="number" id="applianceCost" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg" value="800" placeholder="800">
+                                <p class="text-xs text-gray-500 mt-1">Dishwasher, water heater, washing machine, etc.</p>
+                            </div>
+
+                            <button onclick="calculateROI()" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
+                                Calculate My Savings →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div id="results" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-xl p-8">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900">Your Savings Breakdown</h2>
+
+                        <div class="space-y-6">
+                            <!-- Current Annual Spending -->
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <div class="text-sm text-gray-600 mb-1">You're Currently Spending:</div>
+                                <div class="text-4xl font-bold text-red-600" id="annualSpend">$0</div>
+                                <div class="text-sm text-gray-600">per year on bottled water</div>
+                            </div>
+
+                            <!-- 5-Year Savings -->
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <div class="text-sm text-gray-600 mb-1">5-Year Savings:</div>
+                                <div class="text-3xl font-bold text-green-600" id="fiveYearSavings">$0</div>
+                                <div class="text-sm text-gray-600">on bottled water alone</div>
+                            </div>
+
+                            <!-- Appliance Savings -->
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <div class="text-sm text-gray-600 mb-1">Appliance Lifespan Extension:</div>
+                                <div class="text-3xl font-bold text-green-600" id="applianceSavings">$0</div>
+                                <div class="text-sm text-gray-600">saved over 10 years</div>
+                            </div>
+
+                            <!-- Total ROI -->
+                            <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-lg p-6 shadow-md text-white">
+                                <div class="text-sm mb-1">Total 10-Year ROI:</div>
+                                <div class="text-4xl font-bold" id="totalROI">$0</div>
+                                <div class="text-sm mt-2">Investment: $3,299 or $50/month</div>
+                            </div>
+
+                            <!-- Payback Period -->
+                            <div class="bg-white rounded-lg p-6 shadow-md border-2 border-blue-600">
+                                <div class="text-center">
+                                    <div class="text-sm text-gray-600 mb-1">System Pays for Itself In:</div>
+                                    <div class="text-5xl font-bold text-blue-600" id="paybackMonths">0</div>
+                                    <div class="text-lg font-semibold text-gray-900">months</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <a href="../services/water-filtration.html" class="block w-full bg-blue-600 text-white text-center py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition shadow-lg">
+                                Get My FREE Water Test →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Value Proposition -->
+                <div class="mt-12 bg-yellow-50 border-2 border-yellow-400 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 text-center">But Wait, There's More Value!</h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-green-600 mb-2">30%+</div>
+                            <p class="text-gray-700">Increase in water heater efficiency</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-600 mb-2">50%+</div>
+                            <p class="text-gray-700">Reduction in soap and detergent use</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-green-600 mb-2">100%</div>
+                            <p class="text-gray-700">Removal of harmful contaminants</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 [Your Company Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateROI() {
+            // Get inputs
+            const householdSize = parseInt(document.getElementById('householdSize').value) || 4;
+            const bottlesPerWeek = parseInt(document.getElementById('bottlesPerWeek').value) || 10;
+            const costPerBottle = parseFloat(document.getElementById('costPerBottle').value) || 1.50;
+            const applianceLife = parseInt(document.getElementById('applianceLife').value) || 8;
+            const applianceCost = parseInt(document.getElementById('applianceCost').value) || 800;
+
+            // Calculate bottled water costs
+            const weeklyBottleSpend = householdSize * bottlesPerWeek * costPerBottle;
+            const annualBottleSpend = weeklyBottleSpend * 52;
+            const fiveYearBottleSpend = annualBottleSpend * 5;
+            const tenYearBottleSpend = annualBottleSpend * 10;
+
+            // Calculate appliance savings
+            // With hard water: replace every 5-8 years
+            // With RO system: appliances last 50% longer
+            const normalReplacements = Math.floor(10 / applianceLife);
+            const withROReplacements = Math.floor(10 / (applianceLife * 1.5));
+            const applianceSavings = (normalReplacements - withROReplacements) * applianceCost * 3; // 3 major appliances
+
+            // System cost
+            const systemCost = 3299;
+            const tenYearOperatingCost = 500; // Filters, maintenance
+            const totalSystemCost = systemCost + tenYearOperatingCost;
+
+            // Total ROI
+            const totalSavings = tenYearBottleSpend + applianceSavings;
+            const netROI = totalSavings - totalSystemCost;
+
+            // Payback period (months)
+            const monthlyBottleSavings = weeklyBottleSpend * 4.33;
+            const paybackMonths = Math.ceil(systemCost / monthlyBottleSavings);
+
+            // Update display
+            document.getElementById('annualSpend').textContent = '$' + annualBottleSpend.toFixed(0);
+            document.getElementById('fiveYearSavings').textContent = '$' + fiveYearBottleSpend.toFixed(0);
+            document.getElementById('applianceSavings').textContent = '$' + applianceSavings.toFixed(0);
+            document.getElementById('totalROI').textContent = '$' + netROI.toFixed(0);
+            document.getElementById('paybackMonths').textContent = paybackMonths;
+        }
+
+        // Calculate on page load with default values
+        window.addEventListener('DOMContentLoaded', calculateROI);
+    </script>
+</body>
+</html>

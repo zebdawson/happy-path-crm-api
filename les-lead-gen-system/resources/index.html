@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free home improvement resources: water quality reports, solar calculators, landscaping guides, and security checklists for Arizona homeowners.">
+    <title>Free Home Improvement Resources | Phoenix, AZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased">
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-blue-700">[Your Company Name]</a>
+                <div class="flex gap-4">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-700 transition">Home</a>
+                    <a href="tel:XXX-XXX-XXXX" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-bold">📞 Call Us</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-gradient-to-br from-blue-900 to-green-700 text-white py-16 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Free Home Improvement Resources</h1>
+            <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+                Calculators, guides, and tools to help you make informed decisions about your home
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Water Quality Resources -->
+                <div class="mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="text-5xl mr-4">💧</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Water Quality Resources</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-blue-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Water ROI Calculator</h3>
+                            <p class="text-gray-700 mb-4">Calculate exactly how much you'll save with a reverse osmosis system</p>
+                            <a href="../calculators/water-roi.html" class="block w-full bg-blue-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition">Use Calculator →</a>
+                        </div>
+
+                        <div class="bg-blue-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Phoenix Water Quality Report 2024</h3>
+                            <p class="text-gray-700 mb-4">Complete breakdown of contaminants found in Phoenix tap water</p>
+                            <button onclick="downloadLead('water-report')" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition">Download PDF →</button>
+                        </div>
+
+                        <div class="bg-blue-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">RO vs Traditional Filtration Guide</h3>
+                            <p class="text-gray-700 mb-4">Compare different water filtration technologies and their effectiveness</p>
+                            <button onclick="downloadLead('ro-guide')" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition">Download Guide →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Resources -->
+                <div class="mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="text-5xl mr-4">☀️</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Solar Energy Resources</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-orange-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Solar Savings Calculator</h3>
+                            <p class="text-gray-700 mb-4">See your 25-year savings, payback period, and tax credit amounts</p>
+                            <a href="../services/solar.html#calculator" class="block w-full bg-orange-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition">Calculate Now →</a>
+                        </div>
+
+                        <div class="bg-orange-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">2024 Arizona Solar Tax Credit Guide</h3>
+                            <p class="text-gray-700 mb-4">Complete guide to claiming your 30% federal + state incentives</p>
+                            <button onclick="downloadLead('solar-tax')" class="w-full bg-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition">Download Guide →</button>
+                        </div>
+
+                        <div class="bg-orange-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Solar Panel ROI Worksheet</h3>
+                            <p class="text-gray-700 mb-4">Step-by-step worksheet to calculate your exact return on investment</p>
+                            <button onclick="downloadLead('solar-worksheet')" class="w-full bg-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition">Get Worksheet →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landscaping Resources -->
+                <div class="mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="text-5xl mr-4">🌴</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Landscaping Resources</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-green-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Landscape Cost Estimator</h3>
+                            <p class="text-gray-700 mb-4">Get a ballpark estimate for your backyard transformation project</p>
+                            <a href="../services/landscaping.html" class="block w-full bg-green-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">Estimate Cost →</a>
+                        </div>
+
+                        <div class="bg-green-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">New Construction Backyard Timeline</h3>
+                            <p class="text-gray-700 mb-4">Week-by-week guide to completing your landscape before HOA deadline</p>
+                            <button onclick="downloadLead('landscape-timeline')" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">Download Guide →</button>
+                        </div>
+
+                        <div class="bg-green-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">HOA-Approved Desert Landscaping</h3>
+                            <p class="text-gray-700 mb-4">50+ design ideas that pass strict HOA requirements</p>
+                            <button onclick="downloadLead('hoa-designs')" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">View Designs →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Resources -->
+                <div class="mb-16">
+                    <div class="flex items-center mb-8">
+                        <div class="text-5xl mr-4">🔒</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Home Security Resources</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-red-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Security ROI Calculator</h3>
+                            <p class="text-gray-700 mb-4">Calculate your insurance savings and system payback period</p>
+                            <a href="../services/security.html" class="block w-full bg-red-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition">Calculate ROI →</a>
+                        </div>
+
+                        <div class="bg-red-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Home Security Vulnerability Quiz</h3>
+                            <p class="text-gray-700 mb-4">Interactive quiz: How secure is your home? (Get a security score 1-10)</p>
+                            <button onclick="downloadLead('security-quiz')" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition">Take Quiz →</button>
+                        </div>
+
+                        <div class="bg-red-50 rounded-xl shadow-lg p-6 hover:shadow-2xl transition">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900">Insurance Discount Maximizer</h3>
+                            <p class="text-gray-700 mb-4">Email template to request your 15-20% insurance discount</p>
+                            <button onclick="downloadLead('insurance-template')" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition">Get Template →</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Modal (Hidden by default) -->
+    <div id="downloadModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Get Your Free Resource</h3>
+            <p class="text-gray-600 mb-6">Enter your email and we'll send it to you instantly:</p>
+
+            <form id="resourceForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Name *</label>
+                    <input type="text" id="resourceName" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Email *</label>
+                    <input type="email" id="resourceEmail" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <input type="hidden" id="resourceType" value="">
+                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition">
+                    Send Me The Resource →
+                </button>
+                <button type="button" onclick="closeModal()" class="w-full text-gray-600 hover:text-gray-900 transition">
+                    Cancel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2024 [Your Company Name]. All rights reserved.</p>
+            <p><a href="../index.html" class="hover:text-white">Home</a> | <a href="#" class="hover:text-white ml-3">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function downloadLead(resourceType) {
+            document.getElementById('resourceType').value = resourceType;
+            document.getElementById('downloadModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').classList.add('hidden');
+        }
+
+        document.getElementById('resourceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('resourceName').value;
+            const email = document.getElementById('resourceEmail').value;
+            const resource = document.getElementById('resourceType').value;
+
+            // Send data to your email service/CRM
+            console.log('Lead captured:', {name, email, resource});
+
+            // Show success message
+            alert(`Thanks ${name}! We've sent the resource to ${email}. Check your inbox!`);
+
+            // Close modal and reset form
+            closeModal();
+            this.reset();
+
+            // Track conversion
+            // gtag('event', 'lead', {'event_category': 'Resource Download', 'event_label': resource});
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

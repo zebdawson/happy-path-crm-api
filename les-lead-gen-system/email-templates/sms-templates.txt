@@ -1,0 +1,231 @@
+═══════════════════════════════════════════════════════════════════════
+SMS MESSAGE TEMPLATES - ALL SERVICES
+Multi-Service Home Improvement Lead Generation System
+═══════════════════════════════════════════════════════════════════════
+
+IMPORTANT NOTES:
+- Keep messages under 160 characters to avoid multi-part SMS
+- Personalize with {NAME}, {DATE}, {TIME}, {PHONE} variables
+- Include clear opt-out instructions (reply STOP)
+- Use link shorteners for URLs to save characters
+- Send during business hours (9am-7pm local time)
+- Always provide value, not just sales pitches
+
+═══════════════════════════════════════════════════════════════════════
+💧 WATER FILTRATION SMS SEQUENCE (4 messages)
+═══════════════════════════════════════════════════════════════════════
+
+--- Message 1: Confirmation ---
+Send: Immediately after form submission
+
+Hi {NAME}! Your FREE water test is confirmed for {DATE}. Reply YES to confirm or call to reschedule: {PHONE}
+
+--- Message 2: Education/Value ---
+Send: 1 day before appointment
+
+{NAME}, did you know Phoenix water has 7 toxins that void appliance warranties? See your test results {DATE}! Questions? Text back.
+
+--- Message 3: Appointment Reminder ---
+Send: 24 hours before appointment
+
+{NAME}, your water test is tomorrow at {TIME}. What's the #1 thing you want us to test for? (Lead, chlorine, hardness, etc?)
+
+--- Message 4: Post-Appointment Follow-Up ---
+Send: 2 hours after appointment
+
+{NAME}, thanks for your time today! Your custom quote is ready. When's best to review: Today or tomorrow? - {YOUR_NAME}
+
+--- Bonus: Urgent Follow-Up (if no response after 3 days) ---
+
+{NAME}, still interested in that water system? We're holding your $299 FREE test credit for 48 more hours. Claim it: {PHONE}
+
+
+═══════════════════════════════════════════════════════════════════════
+☀️ SOLAR INSTALLATION SMS SEQUENCE (4 messages)
+═══════════════════════════════════════════════════════════════════════
+
+--- Message 1: Confirmation + Value Prop ---
+Send: Immediately after form submission
+
+Hi {NAME}! Your solar savings report is ready: You could save $64,500 over 25 years. View here: {SHORT_LINK}
+
+--- Message 2: Education/Engagement ---
+Send: 1 day after signup
+
+{NAME}, quick question: Are you paying more than $150/mo for electricity? (Most Phoenix homes do). Reply with your amount.
+
+--- Message 3: Appointment Reminder ---
+Send: 1 day before consultation
+
+Your solar consultation is {DATE} at {TIME}. FYI: We'll show you exact panel placement + your $0 bill timeline! See you then.
+
+--- Message 4: Post-Appointment Follow-Up ---
+Send: Same evening as appointment
+
+{NAME}, your custom solar design is ready! 0% financing approved. Click to view: {SHORT_LINK}. Questions? Reply or call {PHONE}.
+
+--- Bonus: Tax Credit Urgency ---
+
+{NAME}: 2024 tax credits expire soon! Lock in 30% federal savings now. Install slots limited. Ready to save? {PHONE}
+
+
+═══════════════════════════════════════════════════════════════════════
+🌴 LANDSCAPING SMS SEQUENCE (4 messages)
+═══════════════════════════════════════════════════════════════════════
+
+--- Message 1: Confirmation ---
+Send: Immediately after form submission
+
+Hi {NAME}! Your FREE 3D backyard design confirmed for {DATE}. Any special features you want included? (Pool, fire pit, etc)
+
+--- Message 2: HOA Urgency (if applicable) ---
+Send: 1 day after signup
+
+{NAME}: HOA deadline coming up? We can fast-track your design + get approval in 48 hours. Reply RUSH if needed.
+
+--- Message 3: Appointment Reminder ---
+Send: Day before consultation
+
+Your design consultation is tomorrow at {TIME}. Bring: Lot dimensions, HOA guidelines, inspo pics! Excited to create your oasis.
+
+--- Message 4: Post-Appointment Follow-Up ---
+Send: 2 days after site visit
+
+{NAME}, your 3D design is ready! 😍 View it here: {SHORT_LINK}. Financing options included. Let's make it happen!
+
+--- Bonus: Seasonal Urgency ---
+
+{NAME}: Installing now means your backyard is ready for summer entertaining! Design slots filling. Lock yours in: {PHONE}
+
+
+═══════════════════════════════════════════════════════════════════════
+🔒 HOME SECURITY SMS SEQUENCE (4 messages)
+═══════════════════════════════════════════════════════════════════════
+
+--- Message 1: Confirmation ---
+Send: Immediately after form submission
+
+Hi {NAME}! Your FREE security assessment is set for {DATE}. We'll identify all vulnerable entry points. See you soon!
+
+--- Message 2: Insurance Tip ---
+Send: 1 day after signup
+
+Quick tip {NAME}: A security system can cut your insurance 20%! That's $360/year saved. Worth checking out, right?
+
+--- Message 3: Appointment Reminder ---
+Send: 24 hours before appointment
+
+Your security assessment is tomorrow at {TIME}. Question: Any specific concerns? (Break-ins, package theft, etc?) Text back.
+
+--- Message 4: Post-Appointment Follow-Up ---
+Send: Same day as appointment
+
+{NAME}, your security plan is ready. Installation THIS WEEK available. $30/mo + insurance savings = basically free! Interested?
+
+--- Bonus: Urgency/Scarcity ---
+
+{NAME}: FREE installation offer ends this month (save $500). Same-week install available. Protect your home now: {PHONE}
+
+
+═══════════════════════════════════════════════════════════════════════
+📋 GENERAL SMS BEST PRACTICES
+═══════════════════════════════════════════════════════════════════════
+
+DO:
+✓ Get explicit opt-in consent before sending SMS
+✓ Personalize with name and relevant details
+✓ Provide immediate value in every message
+✓ Make it conversational (like a friend texting)
+✓ Include clear call-to-action
+✓ Respond quickly to replies (within 15 minutes if possible)
+✓ Use emojis sparingly for visual interest
+✓ Time messages appropriately (9am-7pm)
+
+DON'T:
+✗ Send more than 1 message per day
+✗ Use ALL CAPS (seems spammy)
+✗ Send generic, templated-sounding messages
+✗ Ignore replies
+✗ Send during early morning or late night
+✗ Be too salesy - provide value first
+✗ Forget the opt-out option
+
+═══════════════════════════════════════════════════════════════════════
+📱 SMS SERVICE PROVIDER INTEGRATION
+═══════════════════════════════════════════════════════════════════════
+
+Popular SMS platforms for automation:
+- Twilio (API-based, highly customizable)
+- SimpleTexting (user-friendly interface)
+- EZ Texting (good for small business)
+- Podium (includes reviews + messaging)
+- GoHighLevel (all-in-one CRM with SMS)
+
+Setup steps:
+1. Choose SMS provider and create account
+2. Get a local phone number (Phoenix area code: 602, 480, 623)
+3. Import your templates into the platform
+4. Set up automation triggers (form submission)
+5. Create workflows with appropriate delays
+6. Add personalization merge fields
+7. Test with your own phone number
+8. Monitor delivery rates and responses
+
+═══════════════════════════════════════════════════════════════════════
+🎯 RESPONSE HANDLING SCRIPTS
+═══════════════════════════════════════════════════════════════════════
+
+When someone replies "YES" to appointment confirmation:
+→ "Perfect! We've got you locked in for {DATE} at {TIME}. Address: {ADDRESS}. See you there!"
+
+When someone asks about pricing:
+→ "Great question! Pricing depends on your specific needs. Let's discuss on our call {DATE}. Or call now: {PHONE}"
+
+When someone says "NOT INTERESTED":
+→ "No problem {NAME}! We'll remove you from messages. If you change your mind, we're here: {PHONE}"
+
+When someone asks questions:
+→ Respond personally and helpfully
+→ Never use canned responses for genuine questions
+→ Offer to call them if complex explanation needed
+
+═══════════════════════════════════════════════════════════════════════
+📊 TRACKING & OPTIMIZATION
+═══════════════════════════════════════════════════════════════════════
+
+Key metrics to track:
+- Delivery rate (should be 95%+)
+- Open rate (SMS is typically 98%+)
+- Response rate (aim for 20-30%)
+- Click-through rate on links (15-25%)
+- Opt-out rate (keep under 2%)
+- Conversion to appointment (measure by service)
+
+A/B testing ideas:
+- Time of day (morning vs afternoon)
+- Message length (short vs detailed)
+- CTA type (call vs text vs click)
+- Emoji use (with vs without)
+- Personalization level (name only vs specific details)
+
+═══════════════════════════════════════════════════════════════════════
+⚖️ COMPLIANCE & LEGAL
+═══════════════════════════════════════════════════════════════════════
+
+TCPA Compliance (Telephone Consumer Protection Act):
+- Must have written consent to send marketing SMS
+- Include opt-out instructions in every message
+- Honor opt-out requests immediately (within 24 hours)
+- Keep records of consent
+- Don't send to numbers on Do Not Call registry (for cold outreach)
+
+Standard Opt-Out Language:
+"Reply STOP to unsubscribe. Msg&data rates may apply."
+
+Privacy Statement (include in form submissions):
+"By submitting this form, you consent to receive SMS messages from {COMPANY}.
+Message frequency varies. Reply STOP to opt out. Privacy policy: {URL}"
+
+═══════════════════════════════════════════════════════════════════════
+END OF SMS TEMPLATES
+═══════════════════════════════════════════════════════════════════════
