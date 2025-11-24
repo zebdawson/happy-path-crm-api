@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions | VoiceCapture AI</title>
+    <meta name="description" content="Get answers to common questions about VoiceCapture AI. Learn about pricing, setup, integrations, and more.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/generated-icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#0066FF',
+                        'brand-green': '#00CC66',
+                        'brand-red': '#FF3333',
+                        'brand-navy': '#001F3F',
+                        'brand-gray': '#F5F7FA',
+                        'brand-gold': '#FFD700',
+                        'brand-purple': '#6C5CE7'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/website/css/style.css">
+</head>
+<body class="font-sans antialiased text-brand-navy bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/website/index.html" class="text-2xl font-bold text-brand-blue">VoiceCapture AI</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/website/index.html" class="text-gray-700 hover:text-brand-blue transition-colors">Home</a>
+                    <a href="/website/index.html#pricing" class="text-gray-700 hover:text-brand-blue transition-colors">Pricing</a>
+                    <a href="/website/calculator.html" class="text-gray-700 hover:text-brand-blue transition-colors">Calculator</a>
+                    <a href="tel:+1-555-123-4567" class="text-brand-blue hover:text-blue-700 font-semibold">📞 (555) 123-4567</a>
+                    <a href="/website/demo.html" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all">Book Demo</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-700 hover:text-brand-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                    Frequently Asked Questions
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600">
+                    Everything you need to know about VoiceCapture AI
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mb-12" x-data="{ search: '' }">
+                <div class="relative">
+                    <input
+                        type="text"
+                        x-model="search"
+                        placeholder="Search questions..."
+                        class="w-full px-6 py-4 pl-12 border-2 border-gray-300 rounded-lg focus:border-brand-blue focus:outline-none text-lg"
+                    >
+                    <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="mb-8 flex flex-wrap gap-4 justify-center" x-data="{ activeCategory: 'all' }">
+                <button @click="activeCategory = 'all'" :class="activeCategory === 'all' ? 'bg-brand-blue text-white' : 'bg-white text-gray-700 border-2 border-gray-200'" class="px-6 py-2 rounded-lg font-semibold transition-colors hover:border-brand-blue">All</button>
+                <button @click="activeCategory = 'getting-started'" :class="activeCategory === 'getting-started' ? 'bg-brand-blue text-white' : 'bg-white text-gray-700 border-2 border-gray-200'" class="px-6 py-2 rounded-lg font-semibold transition-colors hover:border-brand-blue">Getting Started</button>
+                <button @click="activeCategory = 'pricing'" :class="activeCategory === 'pricing' ? 'bg-brand-blue text-white' : 'bg-white text-gray-700 border-2 border-gray-200'" class="px-6 py-2 rounded-lg font-semibold transition-colors hover:border-brand-blue">Pricing</button>
+                <button @click="activeCategory = 'technical'" :class="activeCategory === 'technical' ? 'bg-brand-blue text-white' : 'bg-white text-gray-700 border-2 border-gray-200'" class="px-6 py-2 rounded-lg font-semibold transition-colors hover:border-brand-blue">Technical</button>
+                <button @click="activeCategory = 'support'" :class="activeCategory === 'support' ? 'bg-brand-blue text-white' : 'bg-white text-gray-700 border-2 border-gray-200'" class="px-6 py-2 rounded-lg font-semibold transition-colors hover:border-brand-blue">Support</button>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-4" x-data="{ openFaq: null }">
+
+                <!-- Getting Started -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 1 ? null : 1" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Does it actually sound human?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 1" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">Yes. Our AI uses advanced natural language processing and conversational AI that customers can't tell apart from a human. We've handled over 10,000 calls with a 98% customer satisfaction rating.</p>
+                        <p class="mb-4">The AI understands context, handles interruptions naturally, and even adapts its tone based on the conversation. It doesn't sound robotic at all—listen to our demo calls on the homepage to hear for yourself.</p>
+                        <p>Don't take our word for it: Call <strong>(555) 123-4567</strong> right now and try to stump it.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 2 ? null : 2" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">How long does setup take?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 2" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>Most clients are live in 48 hours.</strong> Here's the exact process:</p>
+                        <div class="space-y-3 ml-4">
+                            <div><strong>Step 1 (15 minutes):</strong> Onboarding call where we learn about your business</div>
+                            <div><strong>Step 2 (24-48 hours):</strong> We build and train your custom AI</div>
+                            <div><strong>Step 3 (30 minutes):</strong> You review and approve the scripts</div>
+                            <div><strong>Step 4 (Instant):</strong> Go live by forwarding your calls</div>
+                        </div>
+                        <p class="mt-4">It's incredibly fast compared to hiring and training a human receptionist (which takes weeks or months).</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 3 ? null : 3" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What if the AI doesn't know how to answer something?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 3" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">We train your AI on your specific business during setup, including:</p>
+                        <ul class="list-disc ml-6 mb-4 space-y-2">
+                            <li>Your services and pricing</li>
+                            <li>Common customer questions (FAQs)</li>
+                            <li>Your policies and procedures</li>
+                            <li>Industry-specific terminology</li>
+                        </ul>
+                        <p class="mb-4">For complex situations the AI can't handle, you have options:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li><strong>Collect info & callback:</strong> AI gathers details and you call back later</li>
+                            <li><strong>Transfer to you:</strong> Seamlessly transfer to you or your team in real-time</li>
+                            <li><strong>Take a message:</strong> Customer leaves detailed message for follow-up</li>
+                        </ul>
+                        <p class="mt-4">You control the escalation rules, and we continuously optimize the scripts based on real call patterns.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 4 ? null : 4" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Do I need special equipment?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 4" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>No special equipment needed.</strong> It works with your existing phone setup.</p>
+                        <p class="mb-4">All you need to do is forward your business line to the number we provide. That's it. It works with:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Traditional landlines</li>
+                            <li>VoIP systems</li>
+                            <li>Cell phones</li>
+                            <li>Multi-line office systems</li>
+                        </ul>
+                        <p class="mt-4">No installation. No hardware. No IT knowledge required.</p>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 5 ? null : 5" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What are your pricing plans?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 5" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">We have three simple plans:</p>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-brand-blue pl-4">
+                                <div class="font-bold text-lg mb-1">Starter - $297/month</div>
+                                <div class="text-sm">Up to 100 calls/mo, 1 location, basic scripts</div>
+                            </div>
+                            <div class="border-l-4 border-brand-green pl-4">
+                                <div class="font-bold text-lg mb-1">Professional - $497/month</div>
+                                <div class="text-sm">Up to 500 calls/mo, 3 locations, custom scripts, priority support</div>
+                                <div class="text-xs text-brand-green mt-1">⭐ Most Popular</div>
+                            </div>
+                            <div class="border-l-4 border-brand-purple pl-4">
+                                <div class="font-bold text-lg mb-1">Enterprise - $997/month</div>
+                                <div class="text-sm">Unlimited calls, unlimited locations, white-label, dedicated manager</div>
+                            </div>
+                        </div>
+                        <p class="mt-4">All plans include: calendar integration, CRM sync, call recording, reporting, and SMS confirmations.</p>
+                        <a href="/website/index.html#pricing" class="text-brand-blue font-semibold hover:text-blue-700">View full comparison →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 6 ? null : 6" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Are there any setup fees or hidden costs?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 6" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>No setup fees. No hidden costs.</strong></p>
+                        <p class="mb-4">What you see is what you pay. Your monthly subscription includes:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Complete setup and training</li>
+                            <li>Custom script development</li>
+                            <li>All integrations</li>
+                            <li>Unlimited script updates</li>
+                            <li>Ongoing optimization</li>
+                            <li>Technical support</li>
+                            <li>All features listed in your plan</li>
+                        </ul>
+                        <p class="mt-4">The only additional cost would be if you exceed your plan's call volume, and even then, overage charges are clearly disclosed upfront.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 7 ? null : 7" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Is there a contract? Can I cancel?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 7 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 7" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>No long-term contracts. Cancel anytime with 30 days notice.</strong></p>
+                        <p class="mb-4">We operate month-to-month because we earn your business every single month by delivering results. You're in control.</p>
+                        <p>Plus, we offer two guarantees:</p>
+                        <ul class="list-disc ml-6 mt-2 space-y-2">
+                            <li><strong>7-Day ROI Guarantee:</strong> If you don't capture at least 5x your investment in booked appointments, full refund</li>
+                            <li><strong>30-Day Perfect Fit Guarantee:</strong> If it's not right for any reason, full refund</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 8 ? null : 8" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What if I'm not getting ROI?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 8 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 8" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>We offer a 7-Day ROI Guarantee.</strong></p>
+                        <p class="mb-4">If you don't capture at least 5x your monthly investment in booked appointments within the first 7 days, we'll refund everything and you keep the system.</p>
+                        <p class="mb-4">We're that confident it will work for your business because we've seen it work for 500+ other businesses just like yours.</p>
+                        <p>Our average client sees a 77x return in the first month. The AI pays for itself by 10am every single day.</p>
+                    </div>
+                </div>
+
+                <!-- Technical -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 9 ? null : 9" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Can it integrate with my existing systems?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 9 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 9" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>Yes.</strong> We integrate with most major systems including:</p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <div class="font-semibold mb-2">Calendar Systems:</div>
+                                <ul class="list-disc ml-6 space-y-1 text-sm">
+                                    <li>Google Calendar</li>
+                                    <li>Outlook Calendar</li>
+                                    <li>Apple Calendar</li>
+                                    <li>Calendly</li>
+                                    <li>Acuity Scheduling</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-2">CRM Systems:</div>
+                                <ul class="list-disc ml-6 space-y-1 text-sm">
+                                    <li>Most major CRMs</li>
+                                    <li>Custom CRM via API</li>
+                                    <li>Zapier for 5,000+ apps</li>
+                                    <li>Webhooks for custom integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>If you have a custom system, we likely have an integration available or can build one. We'll identify all your systems during onboarding and set up the integrations.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 10 ? null : 10" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">How many calls can it handle at once?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 10 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 10" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>Unlimited.</strong> The AI can handle as many simultaneous calls as you receive.</p>
+                        <p class="mb-4">Unlike human receptionists who can only handle one call at a time (putting others on hold or sending to voicemail), our AI can answer 100 calls at the exact same moment—all with the same quality and attention.</p>
+                        <p>This is huge during peak times or after-hours rushes when multiple customers call at once.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 11 ? null : 11" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What languages does it support?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 11 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 11" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">Currently, VoiceCapture AI supports English (US, UK, and Australian accents).</p>
+                        <p class="mb-4">Spanish language support is coming in Q1 2025. If you need multilingual support now, we can detect the customer's language and route to the appropriate person on your team.</p>
+                        <p>Contact us if you have specific language needs and we'll see what we can do.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 12 ? null : 12" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What's your uptime guarantee?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 12 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 12" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>99.9% uptime, monitored 24/7.</strong></p>
+                        <p class="mb-4">We have redundant systems, automatic failovers, and round-the-clock monitoring to ensure your calls are always answered.</p>
+                        <p>If we ever go down (extremely rare), that month is free. We're that serious about reliability.</p>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 13 ? null : 13" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What kind of support do you offer?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 13 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 13" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">Support depends on your plan:</p>
+                        <ul class="list-disc ml-6 mb-4 space-y-2">
+                            <li><strong>Starter:</strong> Email support (24-hour response time)</li>
+                            <li><strong>Professional:</strong> Priority email + phone support (4-hour response time)</li>
+                            <li><strong>Enterprise:</strong> Dedicated success manager + 24/7 phone support</li>
+                        </ul>
+                        <p class="mb-4">All plans include:</p>
+                        <ul class="list-disc ml-6 space-y-2">
+                            <li>Comprehensive knowledge base</li>
+                            <li>Video tutorials</li>
+                            <li>Onboarding call</li>
+                            <li>Ongoing script optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 14 ? null : 14" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">Can you help me update scripts?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 14 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 14" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4"><strong>Yes, absolutely.</strong> Script updates are included in all plans.</p>
+                        <p class="mb-4">As your business evolves—new services, price changes, seasonal promotions, policy updates—we'll update your scripts at no extra charge.</p>
+                        <p>Professional and Enterprise plans include unlimited script revisions. Just reach out to your support team and we'll make the changes, usually within 24 hours.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 15 ? null : 15" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg pr-4">What industries do you work with?</span>
+                        <svg class="w-6 h-6 flex-shrink-0 transform transition-transform" :class="{ 'rotate-180': openFaq === 15 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 15" x-transition class="p-6 pt-0 text-gray-700">
+                        <p class="mb-4">We specialize in service-based businesses where appointment booking and lead capture are critical:</p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <ul class="list-disc ml-6 space-y-2">
+                                <li>Auto repair & mechanics</li>
+                                <li>Med spas & aesthetic clinics</li>
+                                <li>HVAC & plumbing</li>
+                                <li>Dental & medical practices</li>
+                            </ul>
+                            <ul class="list-disc ml-6 space-y-2">
+                                <li>Law firms & legal services</li>
+                                <li>Home services (solar, roofing, landscaping)</li>
+                                <li>Salons & barbershops</li>
+                                <li>And more...</li>
+                            </ul>
+                        </div>
+                        <p class="mt-4">Each AI is custom-trained for your specific industry with relevant terminology, common questions, and best practices.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Still Have Questions CTA -->
+            <div class="mt-16 bg-gradient-to-br from-brand-blue to-blue-700 text-white rounded-2xl p-8 sm:p-12 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">Still Have Questions?</h2>
+                <p class="text-lg opacity-90 mb-8">We're here to help. Talk to a real human (ironic, we know).</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/website/demo.html" class="bg-white text-brand-blue px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        Book A Demo
+                    </a>
+                    <a href="tel:+1-555-123-4567" class="bg-brand-gold text-brand-navy px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors">
+                        Call (555) 123-4567
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">© 2024 VoiceCapture AI. All rights reserved.</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="/website/index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="/website/index.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="/website/calculator.html" class="text-gray-400 hover:text-white transition-colors">Calculator</a>
+                <a href="/website/demo.html" class="text-gray-400 hover:text-white transition-colors">Book Demo</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="/website/js/main.js"></script>
+
+</body>
+</html>
