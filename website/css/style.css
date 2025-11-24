@@ -1,0 +1,513 @@
+/* VoiceCapture AI - Custom Styles */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 102, 255, 0.8);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Utilities */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #0066FF;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20 transition-colors;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #0066FF;
+}
+
+/* Button Hover Effects */
+.btn-primary {
+    @apply bg-brand-blue text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+}
+
+.btn-primary:hover {
+    @apply bg-blue-700 shadow-xl transform -translate-y-1;
+}
+
+.btn-secondary {
+    @apply bg-white text-brand-blue border-2 border-brand-blue px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+}
+
+.btn-secondary:hover {
+    @apply bg-blue-50;
+}
+
+/* Card Hover Effects */
+.card-hover {
+    @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #0066FF, #6C5CE7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    @apply bg-white border-2 border-gray-200 rounded-xl p-8 transition-all duration-300;
+}
+
+.testimonial-card:hover {
+    @apply border-brand-blue shadow-lg;
+}
+
+/* Pricing Cards */
+.pricing-card {
+    @apply bg-white border-2 border-gray-200 rounded-2xl p-8 transition-all duration-300;
+}
+
+.pricing-card:hover {
+    @apply border-brand-blue shadow-xl transform scale-105;
+}
+
+.pricing-card.featured {
+    @apply bg-gradient-to-br from-brand-blue to-blue-700 text-white transform scale-105 shadow-2xl;
+}
+
+/* Stats Counter Animation */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5F7FA;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0066FF;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0052CC;
+}
+
+/* Interactive Elements */
+.interactive-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Mobile Menu Animation */
+@media (max-width: 768px) {
+    .mobile-menu-enter {
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Sticky CTA Bar Animation */
+.sticky-cta-enter {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus Visible (Accessibility) */
+*:focus-visible {
+    outline: 2px solid #0066FF;
+    outline-offset: 2px;
+}
+
+/* Skip to Content Link (Accessibility) */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #0066FF;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
+
+/* Audio Player Styles */
+.audio-player {
+    @apply bg-white rounded-lg p-4 border-2 border-gray-200;
+}
+
+.audio-waveform {
+    @apply flex items-center gap-1 h-12;
+}
+
+.audio-waveform-bar {
+    @apply bg-brand-blue rounded-full transition-all duration-150;
+    width: 3px;
+}
+
+.audio-waveform-bar.playing {
+    animation: audioWave 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes audioWave {
+    from { height: 20%; }
+    to { height: 100%; }
+}
+
+/* Live Indicator */
+.live-indicator {
+    @apply inline-flex items-center gap-2;
+}
+
+.live-indicator::before {
+    content: '';
+    @apply w-2 h-2 bg-red-500 rounded-full;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Calculator Styles */
+.calculator-output {
+    @apply bg-gradient-to-br from-brand-blue to-blue-700 text-white rounded-2xl p-8 shadow-2xl;
+}
+
+.calculator-result {
+    @apply text-5xl font-bold mb-2;
+}
+
+/* Tooltip */
+.tooltip {
+    @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible z-50;
+}
+
+/* Badge Styles */
+.badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+.badge-success {
+    @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-info {
+    @apply bg-blue-100 text-blue-800;
+}
+
+/* Image Lazy Loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Skeleton Loading */
+.skeleton {
+    @apply bg-gray-200 rounded animate-pulse;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+    background-size: 1000px 100%;
+}
+
+/* Exit Intent Popup */
+.exit-popup {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+
+.exit-popup-content {
+    @apply bg-white rounded-2xl p-8 max-w-lg w-full shadow-2xl transform transition-all;
+    animation: popupEnter 0.3s ease-out;
+}
+
+@keyframes popupEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Success Message */
+.success-message {
+    @apply fixed bottom-8 right-8 bg-green-500 text-white px-6 py-4 rounded-lg shadow-2xl z-50;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Error Message */
+.error-message {
+    @apply fixed bottom-8 right-8 bg-red-500 text-white px-6 py-4 rounded-lg shadow-2xl z-50;
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Responsive Video Container */
+.video-container {
+    @apply relative w-full;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe,
+.video-container video {
+    @apply absolute top-0 left-0 w-full h-full rounded-xl;
+}
+
+/* Industry Icons */
+.industry-icon {
+    @apply w-12 h-12 rounded-lg flex items-center justify-center text-2xl;
+}
+
+/* Social Share Buttons */
+.social-share-btn {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300;
+}
+
+.social-share-btn:hover {
+    @apply transform scale-110;
+}
+
+/* Progress Bar */
+.progress-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+    @apply h-full bg-brand-blue transition-all duration-300;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    @apply inline-flex items-center gap-2 font-mono text-xl font-bold;
+}
+
+.countdown-digit {
+    @apply bg-brand-blue text-white px-3 py-2 rounded-lg;
+}
+
+/* Star Rating */
+.star-rating {
+    @apply inline-flex items-center gap-1;
+}
+
+.star-rating .star {
+    @apply text-2xl;
+}
+
+.star-rating .star.filled {
+    @apply text-brand-gold;
+}
+
+.star-rating .star.empty {
+    @apply text-gray-300;
+}
+
+/* Call to Action Pulse */
+.cta-pulse {
+    animation: ctaPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 20px rgba(0, 102, 255, 0);
+    }
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .responsive-table {
+        @apply block overflow-x-auto;
+    }
+
+    .responsive-table table {
+        @apply min-w-full;
+    }
+}
+
+/* Chat Widget Styles (if needed) */
+.chat-widget {
+    @apply fixed bottom-8 right-8 w-16 h-16 bg-brand-blue text-white rounded-full shadow-2xl flex items-center justify-center cursor-pointer z-40;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.chat-widget:hover {
+    @apply bg-blue-700 transform scale-110;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    @apply fixed bottom-8 right-8 w-12 h-12 bg-brand-navy text-white rounded-full shadow-2xl flex items-center justify-center cursor-pointer z-40 opacity-0 transition-all duration-300;
+}
+
+.back-to-top.visible {
+    @apply opacity-100;
+}
+
+.back-to-top:hover {
+    @apply bg-brand-blue transform scale-110;
+}

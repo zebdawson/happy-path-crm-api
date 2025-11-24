@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist | Never Miss A Call Again | VoiceCapture AI</title>
+    <meta name="description" content="AI Receptionist that answers every call in 0.4 seconds, books appointments 24/7, and pays for itself in week 1. Trusted by 500+ businesses.">
+    <meta name="keywords" content="ai receptionist, virtual receptionist, answering service, missed calls, appointment booking, 24/7 answering">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="VoiceCapture AI - AI Receptionist That Never Sleeps">
+    <meta property="og:description" content="Stop losing $10,000+/month to missed calls. Our AI answers in 0.4 seconds and books appointments 24/7.">
+    <meta property="og:image" content="/website/images/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VoiceCapture AI - Never Miss A Call Again">
+    <meta name="twitter:description" content="AI Receptionist that books appointments 24/7. Stop losing money to missed calls.">
+    <meta name="twitter:image" content="/website/images/twitter-card.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/generated-icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#0066FF',
+                        'brand-green': '#00CC66',
+                        'brand-red': '#FF3333',
+                        'brand-navy': '#001F3F',
+                        'brand-gray': '#F5F7FA',
+                        'brand-gold': '#FFD700',
+                        'brand-purple': '#6C5CE7'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/website/css/style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VoiceCapture AI",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "297",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "500"
+      }
+    }
+    </script>
+</head>
+<body class="font-sans antialiased text-brand-navy bg-white">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300" x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = window.pageYOffset > 50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-brand-blue">VoiceCapture AI</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#how-it-works" class="text-gray-700 hover:text-brand-blue transition-colors">How It Works</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-brand-blue transition-colors">Pricing</a>
+                    <a href="/website/case-studies.html" class="text-gray-700 hover:text-brand-blue transition-colors">Case Studies</a>
+                    <a href="/website/faq.html" class="text-gray-700 hover:text-brand-blue transition-colors">FAQ</a>
+                    <a href="tel:+1-555-123-4567" class="text-brand-blue hover:text-blue-700 font-semibold transition-colors">📞 (555) 123-4567</a>
+                    <a href="/website/demo.html" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-lg transform hover:-translate-y-0.5">Book Demo</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-700 hover:text-brand-blue focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" x-transition class="md:hidden pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#how-it-works" class="text-gray-700 hover:text-brand-blue transition-colors">How It Works</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-brand-blue transition-colors">Pricing</a>
+                    <a href="/website/case-studies.html" class="text-gray-700 hover:text-brand-blue transition-colors">Case Studies</a>
+                    <a href="/website/faq.html" class="text-gray-700 hover:text-brand-blue transition-colors">FAQ</a>
+                    <a href="tel:+1-555-123-4567" class="text-brand-blue hover:text-blue-700 font-semibold">📞 (555) 123-4567</a>
+                    <a href="/website/demo.html" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 text-center">Book Demo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-gradient-to-br from-white via-blue-50 to-blue-100 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle, #0066FF 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Copy -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Your Phone Is Ringing Right Now.
+                        <span class="text-brand-blue">Are You Losing Money?</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-700 mb-8 leading-relaxed">
+                        Stop losing $10,000+/month to missed calls. Our AI Receptionist answers in <span class="font-bold text-brand-blue">0.4 seconds</span>, books appointments while you sleep, and pays for itself in week 1—guaranteed.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                        <a href="tel:+1-555-123-4567" class="bg-brand-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center justify-center">
+                            📞 Call Now - Try Our AI
+                        </a>
+                        <a href="/website/demo.html" class="bg-white text-brand-blue border-2 border-brand-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-all inline-flex items-center justify-center">
+                            Book A Demo
+                        </a>
+                    </div>
+
+                    <!-- Trust Bar -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="font-semibold">Trusted by 500+ businesses</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="font-semibold">10,000+ calls this week</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="font-semibold">99.9% uptime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Visual -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 relative z-10">
+                        <!-- Mock Phone Interface -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 pb-4 border-b">
+                                <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center text-white text-xl">📞</div>
+                                <div>
+                                    <div class="font-semibold">Incoming Call</div>
+                                    <div class="text-sm text-gray-500">(555) 987-6543</div>
+                                </div>
+                                <div class="ml-auto">
+                                    <span class="px-3 py-1 bg-brand-green text-white rounded-full text-xs font-semibold animate-pulse">Answered in 0.4s</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-brand-gray p-3 rounded-lg">
+                                    <div class="text-xs text-gray-500 mb-1">Customer</div>
+                                    <div class="text-sm">"Hi, I need to book an appointment for an oil change"</div>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-lg">
+                                    <div class="text-xs text-gray-500 mb-1">AI Receptionist</div>
+                                    <div class="text-sm">"I'd be happy to help! I'm checking our calendar now. We have availability tomorrow at 10am, 2pm, or Thursday at 9am."</div>
+                                </div>
+                                <div class="bg-brand-gray p-3 rounded-lg">
+                                    <div class="text-xs text-gray-500 mb-1">Customer</div>
+                                    <div class="text-sm">"Tomorrow at 2pm works great"</div>
+                                </div>
+                                <div class="bg-blue-100 p-3 rounded-lg">
+                                    <div class="text-xs text-gray-500 mb-1">AI Receptionist</div>
+                                    <div class="text-sm">"Perfect! You're all set for tomorrow at 2pm. You'll receive a confirmation text shortly."</div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-gray-500">Result:</span>
+                                    <span class="px-3 py-1 bg-brand-green text-white rounded-full font-semibold">✓ Appointment Booked</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 z-20">
+                        <div class="text-sm text-gray-500">Revenue Captured</div>
+                        <div class="text-2xl font-bold text-brand-green">$350</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 z-20">
+                        <div class="text-sm text-gray-500">Response Time</div>
+                        <div class="text-2xl font-bold text-brand-blue">0.4s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Trust Bar -->
+    <section class="py-8 bg-white border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-4 text-sm text-gray-500 font-semibold uppercase tracking-wide">Trusted Across Industries</div>
+            <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-gray-400">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🔧</span>
+                    <span class="font-semibold">Auto Repair</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">💆</span>
+                    <span class="font-semibold">Med Spas</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">❄️</span>
+                    <span class="font-semibold">HVAC</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">⚖️</span>
+                    <span class="font-semibold">Law Firms</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🦷</span>
+                    <span class="font-semibold">Dental</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🏠</span>
+                    <span class="font-semibold">Home Services</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section (Agitation) -->
+    <section class="py-20 sm:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Every Missed Call Is Money Walking Out The Door</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">You didn't start a business to lose customers to voicemail. But here's what's happening right now...</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">😤</div>
+                    <h3 class="font-bold text-lg mb-2">62% Won't Call Back</h3>
+                    <p class="text-gray-700">Harvard Business Review found that 62% of customers won't call back if you miss their first call. They're calling your competitor next.</p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">📉</div>
+                    <h3 class="font-bold text-lg mb-2">27% of Calls Lost</h3>
+                    <p class="text-gray-700">The average business loses 27% of calls to voicemail, busy signals, or long hold times. That's over 1 in 4 opportunities gone.</p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">💸</div>
+                    <h3 class="font-bold text-lg mb-2">$500-$2,000 Per Call</h3>
+                    <p class="text-gray-700">Each missed call represents $500-$2,000 in lost revenue depending on your industry. Do the math.</p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">⏰</div>
+                    <h3 class="font-bold text-lg mb-2">After-Hours = 40% Lost</h3>
+                    <p class="text-gray-700">40% of calls happen after business hours, nights, and weekends. Most businesses ignore these completely.</p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">🏃</div>
+                    <h3 class="font-bold text-lg mb-2">Competitors ARE Answering</h3>
+                    <p class="text-gray-700">While your phone rings to voicemail, your competitors are capturing those customers and booking the appointments.</p>
+                </div>
+
+                <div class="bg-red-50 border-l-4 border-brand-red p-6 rounded-r-lg">
+                    <div class="text-3xl mb-3">🤯</div>
+                    <h3 class="font-bold text-lg mb-2">$10K+ Monthly Loss</h3>
+                    <p class="text-gray-700">Most service businesses are losing $10,000-$30,000 per month to missed calls. It's bleeding you dry.</p>
+                </div>
+            </div>
+
+            <!-- ROI Calculator CTA -->
+            <div class="bg-gradient-to-br from-brand-blue to-blue-700 rounded-2xl p-8 sm:p-12 text-white text-center">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4">How Much Are YOU Losing?</h3>
+                <p class="text-xl mb-8 opacity-90">Calculate your exact monthly loss from missed calls</p>
+                <a href="/website/calculator.html" class="inline-block bg-white text-brand-blue px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all hover:shadow-xl transform hover:-translate-y-1">
+                    Calculate My Lost Revenue →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 sm:py-28 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Meet Your New AI Receptionist <br><span class="text-brand-blue">(She Never Sleeps)</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">VoiceCapture AI answers every call, books every appointment, and captures every opportunity—automatically.</p>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-blue rounded-lg flex items-center justify-center text-white text-2xl mb-4">⚡</div>
+                    <h3 class="font-bold text-lg mb-2">Answers in 0.4 Seconds</h3>
+                    <p class="text-gray-600">Faster than you can say "hello". No more lost calls because you couldn't get to the phone in time.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-lg flex items-center justify-center text-white text-2xl mb-4">🗓️</div>
+                    <h3 class="font-bold text-lg mb-2">Books Instantly</h3>
+                    <p class="text-gray-600">Syncs with your calendar in real-time. Appointments are booked before you even know the call happened.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-purple rounded-lg flex items-center justify-center text-white text-2xl mb-4">💬</div>
+                    <h3 class="font-bold text-lg mb-2">Sounds 100% Human</h3>
+                    <p class="text-gray-600">Natural conversations, not robotic scripts. Your customers won't know they're talking to AI.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-gold rounded-lg flex items-center justify-center text-white text-2xl mb-4">🧠</div>
+                    <h3 class="font-bold text-lg mb-2">Learns Your Business</h3>
+                    <p class="text-gray-600">Custom trained on YOUR services, pricing, and FAQs. It knows your business inside and out.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-blue rounded-lg flex items-center justify-center text-white text-2xl mb-4">📞</div>
+                    <h3 class="font-bold text-lg mb-2">Unlimited Calls</h3>
+                    <p class="text-gray-600">No per-minute pricing BS. Handle 10 calls or 10,000 calls—same price.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-green rounded-lg flex items-center justify-center text-white text-2xl mb-4">🌍</div>
+                    <h3 class="font-bold text-lg mb-2">24/7/365 Availability</h3>
+                    <p class="text-gray-600">Nights, weekends, holidays—we've got you covered. Never miss an after-hours opportunity.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-purple rounded-lg flex items-center justify-center text-white text-2xl mb-4">📊</div>
+                    <h3 class="font-bold text-lg mb-2">Full Reporting</h3>
+                    <p class="text-gray-600">See every call, every booking, every opportunity. Know exactly what's working.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-brand-gold rounded-lg flex items-center justify-center text-white text-2xl mb-4">🔗</div>
+                    <h3 class="font-bold text-lg mb-2">CRM Integration</h3>
+                    <p class="text-gray-600">Automatically adds leads to your system. No manual data entry ever again.</p>
+                </div>
+            </div>
+
+            <!-- Demo Video Section -->
+            <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-12">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8">See It In Action</h3>
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white relative overflow-hidden group cursor-pointer">
+                        <!-- Video Placeholder -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-purple/20"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                <svg class="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                </svg>
+                            </div>
+                            <p class="text-xl font-semibold">Watch 90-Second Demo</p>
+                            <p class="text-sm opacity-75 mt-2">See how VoiceCapture AI handles real customer calls</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Proof Section -->
+    <section class="py-20 sm:py-28 bg-gradient-to-br from-brand-navy to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Don't Believe Us? Call Right Now.</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Try to stump our AI. Ask about pricing, book an appointment, or just have a conversation.</p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 sm:p-12 text-center border border-white/20">
+                <div class="mb-6">
+                    <div class="inline-block bg-white text-brand-navy px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                        🔴 LIVE DEMO - Call Now
+                    </div>
+                </div>
+                <a href="tel:+1-555-123-4567" class="text-4xl sm:text-5xl lg:text-6xl font-bold hover:text-brand-gold transition-colors">
+                    📞 (555) 123-4567
+                </a>
+                <p class="text-lg mt-6 opacity-90">Seriously. Call right now and experience the future of customer service.</p>
+
+                <!-- Live Call Feed -->
+                <div class="mt-12 bg-white/5 rounded-xl p-6 max-w-2xl mx-auto">
+                    <div class="text-sm font-semibold mb-4 flex items-center justify-center gap-2">
+                        <span class="w-2 h-2 bg-brand-green rounded-full animate-pulse"></span>
+                        Recent Calls
+                    </div>
+                    <div class="space-y-3 text-left" x-data="callFeed()">
+                        <template x-for="call in calls" :key="call.id">
+                            <div class="flex items-center justify-between text-sm bg-white/5 p-3 rounded-lg" x-transition>
+                                <div class="flex items-center gap-3">
+                                    <span x-text="call.icon" class="text-xl"></span>
+                                    <div>
+                                        <div class="font-semibold" x-text="call.industry + ' in ' + call.city"></div>
+                                        <div class="text-xs opacity-75" x-text="call.outcome"></div>
+                                    </div>
+                                </div>
+                                <div class="text-xs opacity-75" x-text="call.time"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section class="py-20 sm:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Join 500+ Businesses Who Never Miss A Call</h2>
+                <p class="text-xl text-gray-600">Real results from real businesses just like yours</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-brand-blue transition-colors">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-brand-gold text-xl">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"In the first month, VoiceCapture AI captured 73 calls we would have missed. We booked 34 appointments and generated $28,000 in new revenue. It paid for itself in 3 days."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold">JP</div>
+                        <div>
+                            <div class="font-semibold">John Peterson</div>
+                            <div class="text-sm text-gray-500">Peterson Auto Repair, Phoenix AZ</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="text-sm text-gray-600">Before: Missing 15-20 calls/week</div>
+                        <div class="text-sm font-semibold text-brand-green">After: $28K revenue in month 1</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-brand-blue transition-colors">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-brand-gold text-xl">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Our front desk was overwhelmed. Now AI handles the calls, we focus on clients. We've increased bookings by 47% and our staff stress levels dropped to zero."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-purple rounded-full flex items-center justify-center text-white font-bold">SM</div>
+                        <div>
+                            <div class="font-semibold">Sarah Mitchell</div>
+                            <div class="text-sm text-gray-500">Radiance Med Spa, Scottsdale AZ</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="text-sm text-gray-600">Before: Overwhelmed front desk</div>
+                        <div class="text-sm font-semibold text-brand-green">After: 47% more bookings</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-brand-blue transition-colors">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-brand-gold text-xl">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Emergency calls at 2am? No problem. Our AI handles them all. Last month we booked $47K in after-hours service calls we used to completely miss."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center text-white font-bold">MR</div>
+                        <div>
+                            <div class="font-semibold">Mike Rodriguez</div>
+                            <div class="text-sm text-gray-500">Desert HVAC Services, Mesa AZ</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="text-sm text-gray-600">Before: 0% after-hours coverage</div>
+                        <div class="text-sm font-semibold text-brand-green">After: $47K after-hours revenue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Stats -->
+            <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">89%</div>
+                    <div class="text-gray-600">Auto Shops Booking Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">$47K</div>
+                    <div class="text-gray-600">Avg Med Spa Revenue Increase</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">3.2x</div>
+                    <div class="text-gray-600">More HVAC Calls Booked</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">67%</div>
+                    <div class="text-gray-600">Fewer Law Firm Missed Calls</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 sm:py-28 bg-brand-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">From Setup To Your First Booked Appointment In Under 48 Hours</h2>
+                <p class="text-xl text-gray-600">Three simple steps. No technical knowledge required.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
+                        <div class="w-16 h-16 bg-brand-blue rounded-xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">1</div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">📅</div>
+                            <h3 class="text-xl font-bold mb-4">15-Minute Onboarding Call</h3>
+                            <p class="text-gray-600">Tell us about your business, services, and what you want your AI receptionist to handle. That's it.</p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+                        <svg class="w-12 h-12 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
+                        <div class="w-16 h-16 bg-brand-green rounded-xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">2</div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">🤖</div>
+                            <h3 class="text-xl font-bold mb-4">We Build Your Custom AI</h3>
+                            <p class="text-gray-600">Our team trains your AI on your specific services, pricing, and FAQs. You approve before we launch.</p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+                        <svg class="w-12 h-12 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
+                        <div class="w-16 h-16 bg-brand-purple rounded-xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">3</div>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">🚀</div>
+                            <h3 class="text-xl font-bold mb-4">Go Live & Start Booking</h3>
+                            <p class="text-gray-600">Forward your calls and watch appointments fill your calendar. Most clients are live within 48 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="/website/demo.html" class="inline-block bg-brand-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all hover:shadow-xl transform hover:-translate-y-1">
+                    Get Started Today →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 sm:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Transparent Pricing. No Hidden Fees. No Per-Minute Charges.</h2>
+                <p class="text-xl text-gray-600">Choose the plan that fits your business. Upgrade or downgrade anytime.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+                <!-- Starter Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-brand-blue transition-colors">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                        <div class="text-4xl font-bold mb-2">$297<span class="text-lg text-gray-500">/mo</span></div>
+                        <p class="text-gray-600">Perfect for small businesses</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Up to 100 calls/month</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>1 location</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Basic scripts</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Calendar integration</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                    <a href="/website/demo.html" class="block w-full bg-gray-900 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                        Book Demo
+                    </a>
+                </div>
+
+                <!-- Professional Plan (Most Popular) -->
+                <div class="bg-gradient-to-br from-brand-blue to-blue-700 text-white rounded-2xl p-8 relative transform scale-105 shadow-2xl">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-brand-gold text-brand-navy px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
+                    </div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <div class="text-4xl font-bold mb-2">$497<span class="text-lg opacity-75">/mo</span></div>
+                        <p class="opacity-90">Best for growing businesses</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Up to 500 calls/month</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Up to 3 locations</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Custom scripts</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Advanced CRM integration</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Advanced reporting</span>
+                        </li>
+                    </ul>
+                    <a href="/website/demo.html" class="block w-full bg-white text-brand-blue text-center px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Book Demo
+                    </a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-brand-blue transition-colors">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <div class="text-4xl font-bold mb-2">$997<span class="text-lg text-gray-500">/mo</span></div>
+                        <p class="text-gray-600">For agencies & multi-location businesses</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Unlimited</strong> calls</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Unlimited</strong> locations</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Industry-specific training</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>White-label option</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Dedicated success manager</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>API access</span>
+                        </li>
+                    </ul>
+                    <a href="/website/demo.html" class="block w-full bg-gray-900 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                        Book Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Price Comparison -->
+            <div class="bg-brand-gray rounded-2xl p-8 sm:p-12 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-center mb-8">💰 Compare The Costs</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-gray-300">
+                                <th class="text-left py-3 px-4">Solution</th>
+                                <th class="text-right py-3 px-4">Monthly Cost</th>
+                                <th class="text-right py-3 px-4">Annual Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">Full-time receptionist</td>
+                                <td class="text-right py-3 px-4">$3,500</td>
+                                <td class="text-right py-3 px-4">$42,000</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">Part-time receptionist</td>
+                                <td class="text-right py-3 px-4">$2,000</td>
+                                <td class="text-right py-3 px-4">$24,000</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4">Traditional answering service</td>
+                                <td class="text-right py-3 px-4">$800-1,500</td>
+                                <td class="text-right py-3 px-4">$9,600-18,000</td>
+                            </tr>
+                            <tr class="bg-brand-blue text-white font-semibold">
+                                <td class="py-3 px-4 rounded-l-lg">VoiceCapture AI</td>
+                                <td class="text-right py-3 px-4">$297-997</td>
+                                <td class="text-right py-3 px-4">$3,564-11,964</td>
+                            </tr>
+                            <tr class="bg-brand-green text-white font-bold text-lg">
+                                <td class="py-3 px-4 rounded-l-lg">Your Savings</td>
+                                <td class="text-right py-3 px-4">$1,000-3,200/mo</td>
+                                <td class="text-right py-3 px-4 rounded-r-lg">$12,000-38,400/yr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Guarantees -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-12">
+                <div class="text-center p-6 bg-green-50 rounded-xl border-2 border-brand-green">
+                    <div class="text-3xl mb-2">🛡️</div>
+                    <div class="font-bold mb-1">7-Day ROI Guarantee</div>
+                    <div class="text-sm text-gray-600">5x return or full refund</div>
+                </div>
+                <div class="text-center p-6 bg-blue-50 rounded-xl border-2 border-brand-blue">
+                    <div class="text-3xl mb-2">✅</div>
+                    <div class="font-bold mb-1">30-Day Perfect Fit</div>
+                    <div class="text-sm text-gray-600">Not right? Full refund</div>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-xl border-2 border-brand-purple">
+                    <div class="text-3xl mb-2">⚡</div>
+                    <div class="font-bold mb-1">99.9% Uptime</div>
+                    <div class="text-sm text-gray-600">Or that month is free</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 sm:py-28 bg-brand-gray">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Questions? We've Got Answers.</h2>
+                <p class="text-xl text-gray-600">Everything you need to know about VoiceCapture AI</p>
+            </div>
+
+            <div class="space-y-4" x-data="{ openFaq: null }">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 1 ? null : 1" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">Does it actually sound human?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 1" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">Yes. Our AI uses advanced natural language processing and conversational AI that customers can't tell apart from a human. We've handled 10,000+ calls with a 98% customer satisfaction rating. Listen to our demo calls above—you'll be amazed at how natural the conversations sound.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 2 ? null : 2" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">What if the AI doesn't know how to answer something?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 2" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">We train your AI on your specific business, services, and FAQs during setup. For complex situations, the AI can collect information and schedule a callback, or transfer to you/your team in real-time. You control the escalation rules, and we continuously optimize the scripts based on real calls.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 3 ? null : 3" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">How long does setup take?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 3" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">Most clients are live in 48 hours. The onboarding call takes just 15 minutes where we learn about your business. Then we build your custom AI in 24-48 hours. You review and approve it, then we go live. It's incredibly fast compared to hiring and training a human receptionist.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 4 ? null : 4" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">Can it integrate with my existing systems?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 4 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 4" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">Yes. We integrate with most major calendar systems (Google Calendar, Outlook, Calendly, Acuity) and CRMs. If you have a custom system, we likely have an integration available or can build one. During onboarding, we'll identify all your systems and set up the integrations.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 5 ? null : 5" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">What if I'm not getting ROI?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 5 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 5" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">We offer a 7-day ROI guarantee. If you don't capture at least 5x your monthly investment in booked appointments within the first 7 days, we refund everything and you keep the system. We're that confident it will work for your business. Plus, we have a 30-day perfect fit guarantee—if it's not right for any reason, full refund.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button @click="openFaq = openFaq === 6 ? null : 6" class="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-lg">Is there a contract?</span>
+                        <svg class="w-6 h-6 transform transition-transform" :class="{ 'rotate-180': openFaq === 6 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="openFaq === 6" x-transition class="p-6 pt-0">
+                        <p class="text-gray-600">No long-term contracts. Cancel anytime with 30 days notice. We earn your business every month by delivering results. Month-to-month means you're in control, and we stay hungry to keep performing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="/website/faq.html" class="text-brand-blue font-semibold hover:text-blue-700 transition-colors">
+                    View All FAQs →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 sm:py-28 bg-gradient-to-br from-brand-navy via-blue-900 to-brand-navy text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Ready To Stop Losing Money To Missed Calls?</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Join 500+ businesses that never miss an opportunity. Get started in under 48 hours.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Option 1 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center hover:bg-white/15 transition-colors">
+                    <div class="text-4xl mb-4">📞</div>
+                    <h3 class="text-xl font-bold mb-3">See It In Action</h3>
+                    <p class="mb-6 opacity-90">Call our AI right now and try to stump it</p>
+                    <a href="tel:+1-555-123-4567" class="inline-block bg-white text-brand-navy px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Call (555) 123-4567
+                    </a>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-brand-gold text-center transform scale-105 hover:bg-white/15 transition-colors">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Book A Demo</h3>
+                    <p class="mb-6 opacity-90">15-minute demo of how it works for YOUR business</p>
+                    <a href="/website/demo.html" class="inline-block bg-brand-gold text-brand-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
+                        Book Free Demo
+                    </a>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center hover:bg-white/15 transition-colors">
+                    <div class="text-4xl mb-4">🧮</div>
+                    <h3 class="text-xl font-bold mb-3">Calculate Losses</h3>
+                    <p class="mb-6 opacity-90">Find out exactly what missed calls are costing you</p>
+                    <a href="/website/calculator.html" class="inline-block bg-white text-brand-navy px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Calculate Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Final Trust Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-8 text-sm">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>7-Day ROI Guarantee</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>No Setup Fees</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Cancel Anytime</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Live in 48 Hours</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">VoiceCapture AI</h4>
+                    <p class="text-gray-400 text-sm">The AI Receptionist that never sleeps. Stop losing money to missed calls.</p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="/website/case-studies.html" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="/website/calculator.html" class="text-gray-400 hover:text-white transition-colors">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Industries -->
+                <div>
+                    <h4 class="font-semibold mb-4">Industries</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/website/industry/auto-repair.html" class="text-gray-400 hover:text-white transition-colors">Auto Repair</a></li>
+                        <li><a href="/website/industry/med-spa.html" class="text-gray-400 hover:text-white transition-colors">Med Spas</a></li>
+                        <li><a href="/website/industry/hvac.html" class="text-gray-400 hover:text-white transition-colors">HVAC</a></li>
+                        <li><a href="/website/industry/dental.html" class="text-gray-400 hover:text-white transition-colors">Dental</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/website/agencies.html" class="text-gray-400 hover:text-white transition-colors">For Agencies</a></li>
+                        <li><a href="/website/faq.html" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="/website/docs/privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="/website/docs/terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">© 2024 VoiceCapture AI. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Bottom CTA Bar (Mobile) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-brand-blue text-white p-4 shadow-2xl z-40 md:hidden" x-data="{ show: false }" @scroll.window="show = window.pageYOffset > 500" x-show="show" x-transition>
+        <div class="flex items-center justify-between gap-4">
+            <div class="text-sm font-semibold">Ready to stop missing calls?</div>
+            <a href="/website/demo.html" class="bg-white text-brand-blue px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap">
+                Book Demo
+            </a>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="/website/js/main.js"></script>
+
+    <!-- Live Call Feed JavaScript -->
+    <script>
+        function callFeed() {
+            return {
+                calls: [
+                    { id: 1, icon: '🔧', industry: 'Auto Shop', city: 'Phoenix', outcome: 'Booked oil change', time: '2 min ago' },
+                    { id: 2, icon: '💆', industry: 'Med Spa', city: 'Scottsdale', outcome: 'Price quote provided', time: '4 min ago' },
+                    { id: 3, icon: '❄️', industry: 'HVAC', city: 'Mesa', outcome: 'Emergency AC repair booked', time: '7 min ago' },
+                ],
+                init() {
+                    // Simulate new calls every 10 seconds
+                    setInterval(() => {
+                        this.addNewCall();
+                    }, 10000);
+                },
+                addNewCall() {
+                    const industries = [
+                        { icon: '🔧', name: 'Auto Shop', outcomes: ['Booked oil change', 'Tire rotation scheduled', 'Diagnostic booked'] },
+                        { icon: '💆', name: 'Med Spa', outcomes: ['Consultation booked', 'Botox appointment set', 'Price quote provided'] },
+                        { icon: '❄️', name: 'HVAC', outcomes: ['AC repair scheduled', 'Maintenance visit booked', 'Emergency service dispatched'] },
+                        { icon: '⚖️', name: 'Law Firm', outcomes: ['Consultation scheduled', 'Documents requested', 'Callback arranged'] },
+                        { icon: '🦷', name: 'Dental', outcomes: ['Cleaning appointment', 'Emergency visit booked', 'Follow-up scheduled'] },
+                    ];
+
+                    const cities = ['Phoenix', 'Scottsdale', 'Mesa', 'Tempe', 'Gilbert', 'Chandler'];
+
+                    const industry = industries[Math.floor(Math.random() * industries.length)];
+                    const city = cities[Math.floor(Math.random() * cities.length)];
+                    const outcome = industry.outcomes[Math.floor(Math.random() * industry.outcomes.length)];
+
+                    const newCall = {
+                        id: Date.now(),
+                        icon: industry.icon,
+                        industry: industry.name,
+                        city: city,
+                        outcome: outcome,
+                        time: 'Just now'
+                    };
+
+                    this.calls.unshift(newCall);
+                    if (this.calls.length > 5) {
+                        this.calls.pop();
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Analytics Placeholder (Replace with real IDs) -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+</body>
+</html>

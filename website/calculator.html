@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator - How Much Are You Losing? | VoiceCapture AI</title>
+    <meta name="description" content="Calculate exactly how much money you're losing to missed calls every month. Free ROI calculator for service businesses.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/generated-icon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#0066FF',
+                        'brand-green': '#00CC66',
+                        'brand-red': '#FF3333',
+                        'brand-navy': '#001F3F',
+                        'brand-gray': '#F5F7FA',
+                        'brand-gold': '#FFD700',
+                        'brand-purple': '#6C5CE7'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/website/css/style.css">
+</head>
+<body class="font-sans antialiased text-brand-navy bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/website/index.html" class="text-2xl font-bold text-brand-blue">VoiceCapture AI</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/website/index.html" class="text-gray-700 hover:text-brand-blue transition-colors">Home</a>
+                    <a href="/website/index.html#pricing" class="text-gray-700 hover:text-brand-blue transition-colors">Pricing</a>
+                    <a href="tel:+1-555-123-4567" class="text-brand-blue hover:text-blue-700 font-semibold">📞 (555) 123-4567</a>
+                    <a href="/website/demo.html" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all">Book Demo</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-700 hover:text-brand-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                    How Much Are <span class="text-brand-red">YOU</span> Losing?
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">
+                    Calculate your exact monthly loss from missed calls. The numbers might shock you.
+                </p>
+            </div>
+
+            <!-- Calculator -->
+            <div class="grid lg:grid-cols-5 gap-8 mb-12" x-data="roiCalculator()">
+
+                <!-- Left Column - Inputs (3 columns) -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h2 class="text-2xl font-bold mb-6">Your Business Details</h2>
+
+                        <!-- Industry -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">What industry are you in?</label>
+                            <select x-model="industry" @change="calculate()" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-blue focus:outline-none">
+                                <option value="auto">Auto Repair / Mechanics</option>
+                                <option value="medspa">Med Spa / Aesthetics</option>
+                                <option value="hvac">HVAC / Plumbing</option>
+                                <option value="dental">Dental / Medical</option>
+                                <option value="legal">Law Firm / Legal</option>
+                                <option value="home-services">Home Services (Solar, Roofing, etc.)</option>
+                                <option value="salon">Salon / Barbershop</option>
+                                <option value="other">Other Service Business</option>
+                            </select>
+                        </div>
+
+                        <!-- Calls Per Day -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">
+                                How many calls does your business receive per day?
+                                <span class="text-brand-blue font-bold" x-text="callsPerDay"></span>
+                            </label>
+                            <input
+                                type="range"
+                                x-model="callsPerDay"
+                                @input="calculate()"
+                                min="5"
+                                max="150"
+                                step="5"
+                                class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                            >
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>5</span>
+                                <span>50</span>
+                                <span>100</span>
+                                <span>150</span>
+                            </div>
+                        </div>
+
+                        <!-- Missed Call Percentage -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">
+                                What % of calls do you miss? (Industry average: 27%)
+                                <span class="text-brand-red font-bold" x-text="missedPercent + '%'"></span>
+                            </label>
+                            <input
+                                type="range"
+                                x-model="missedPercent"
+                                @input="calculate()"
+                                min="0"
+                                max="50"
+                                step="1"
+                                class="w-full h-3 bg-red-200 rounded-lg appearance-none cursor-pointer"
+                            >
+                            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                <span>0%</span>
+                                <span>25%</span>
+                                <span>50%</span>
+                            </div>
+                        </div>
+
+                        <!-- Average Sale Value -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">
+                                What's your average sale/ticket value?
+                            </label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">$</span>
+                                <input
+                                    type="number"
+                                    x-model="avgSaleValue"
+                                    @input="calculate()"
+                                    placeholder="500"
+                                    class="w-full pl-8 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-blue focus:outline-none"
+                                >
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">
+                                Industry typical:
+                                <span x-show="industry === 'auto'">$350-500</span>
+                                <span x-show="industry === 'medspa'">$500-2,000</span>
+                                <span x-show="industry === 'hvac'">$400-2,000</span>
+                                <span x-show="industry === 'dental'">$200-800</span>
+                                <span x-show="industry === 'legal'">$2,000-5,000</span>
+                                <span x-show="industry === 'home-services'">$1,000-5,000</span>
+                                <span x-show="industry === 'salon'">$50-200</span>
+                                <span x-show="industry === 'other'">$500-1,000</span>
+                            </p>
+                        </div>
+
+                        <!-- Current Solution -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2">What's your current solution?</label>
+                            <select x-model="currentSolution" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-blue focus:outline-none">
+                                <option value="voicemail">Voicemail</option>
+                                <option value="answering-service">Traditional Answering Service</option>
+                                <option value="parttime">Part-time Receptionist</option>
+                                <option value="fulltime">Full-time Receptionist</option>
+                                <option value="nothing">Nothing (Missing most calls)</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column - Results (2 columns) -->
+                <div class="lg:col-span-2">
+                    <div class="sticky top-24">
+                        <!-- Lost Revenue Card -->
+                        <div class="bg-gradient-to-br from-brand-red to-red-700 text-white rounded-2xl p-8 shadow-2xl mb-6">
+                            <div class="text-sm font-semibold mb-2 opacity-90">💸 You're Losing Every Month</div>
+                            <div class="text-5xl sm:text-6xl font-bold mb-2" x-text="formatCurrency(results.lostRevenue)"></div>
+                            <div class="text-sm opacity-90 mb-4">
+                                <span x-text="results.monthlyMissedCalls"></span> missed calls ×
+                                <span x-text="results.bookingRate + '%'"></span> booking rate
+                            </div>
+                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                <div class="text-xs opacity-90 mb-1">Annual Loss</div>
+                                <div class="text-3xl font-bold" x-text="formatCurrency(results.annualLoss)"></div>
+                            </div>
+                        </div>
+
+                        <!-- Solution Card -->
+                        <div class="bg-gradient-to-br from-brand-green to-green-700 text-white rounded-2xl p-8 shadow-2xl mb-6">
+                            <div class="text-sm font-semibold mb-2 opacity-90">✅ With VoiceCapture AI</div>
+                            <div class="text-5xl sm:text-6xl font-bold mb-2" x-text="formatCurrency(results.recoveredRevenue)"></div>
+                            <div class="text-sm opacity-90 mb-4">Recovered revenue per month</div>
+                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-sm">Monthly Cost:</span>
+                                    <span class="font-bold" x-text="formatCurrency(results.serviceCost)"></span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm">Net Profit:</span>
+                                    <span class="font-bold text-xl" x-text="formatCurrency(results.netProfit)"></span>
+                                </div>
+                                <div class="border-t border-white/20 pt-3">
+                                    <div class="text-xs opacity-90 mb-1">Return on Investment</div>
+                                    <div class="text-3xl font-bold" x-text="results.roi + 'x'"></div>
+                                </div>
+                                <div class="border-t border-white/20 pt-3">
+                                    <div class="text-xs opacity-90 mb-1">Payback Period</div>
+                                    <div class="text-2xl font-bold" x-text="results.paybackDays + ' days'"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="/website/demo.html" class="block w-full bg-brand-blue hover:bg-blue-700 text-white text-center px-6 py-4 rounded-lg font-bold text-lg transition-all hover:shadow-xl transform hover:-translate-y-1">
+                            Book Your Demo →
+                        </a>
+
+                        <div class="text-center mt-4">
+                            <a href="tel:+1-555-123-4567" class="text-brand-blue hover:text-blue-700 font-semibold">
+                                Or call (555) 123-4567 now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Capture -->
+            <div class="bg-brand-navy text-white rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4">Get Your Full ROI Report</h3>
+                <p class="text-lg opacity-90 mb-8">Enter your email and we'll send you a detailed breakdown + custom implementation plan</p>
+
+                <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" x-data="{ email: '' }">
+                    <input
+                        type="email"
+                        x-model="email"
+                        placeholder="your@email.com"
+                        required
+                        class="flex-1 px-6 py-4 rounded-lg text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                    >
+                    <button type="submit" class="bg-brand-gold text-brand-navy px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-colors whitespace-nowrap">
+                        Send My Report
+                    </button>
+                </form>
+
+                <p class="text-xs opacity-75 mt-4">No spam. Just your ROI report and helpful tips.</p>
+            </div>
+
+            <!-- Comparison Section -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-center mb-12">Compare The Costs</h2>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+                        <thead class="bg-brand-gray">
+                            <tr>
+                                <th class="text-left p-6 font-bold">Solution</th>
+                                <th class="text-right p-6 font-bold">Monthly Cost</th>
+                                <th class="text-right p-6 font-bold">Calls Answered</th>
+                                <th class="text-right p-6 font-bold">Annual Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-gray-200">
+                                <td class="p-6">Full-time Receptionist</td>
+                                <td class="text-right p-6 text-gray-600">$3,500</td>
+                                <td class="text-right p-6 text-gray-600">~80%</td>
+                                <td class="text-right p-6 text-gray-600">$42,000</td>
+                            </tr>
+                            <tr class="border-t border-gray-200">
+                                <td class="p-6">Part-time Receptionist</td>
+                                <td class="text-right p-6 text-gray-600">$2,000</td>
+                                <td class="text-right p-6 text-gray-600">~60%</td>
+                                <td class="text-right p-6 text-gray-600">$24,000</td>
+                            </tr>
+                            <tr class="border-t border-gray-200">
+                                <td class="p-6">Traditional Answering Service</td>
+                                <td class="text-right p-6 text-gray-600">$800-1,500</td>
+                                <td class="text-right p-6 text-gray-600">~90%</td>
+                                <td class="text-right p-6 text-gray-600">$9,600-18,000</td>
+                            </tr>
+                            <tr class="border-t-2 border-brand-blue bg-blue-50">
+                                <td class="p-6 font-bold text-brand-blue">VoiceCapture AI</td>
+                                <td class="text-right p-6 font-bold text-brand-blue">$297-997</td>
+                                <td class="text-right p-6 font-bold text-brand-green">99.9%</td>
+                                <td class="text-right p-6 font-bold text-brand-blue">$3,564-11,964</td>
+                            </tr>
+                            <tr class="bg-brand-green text-white font-bold">
+                                <td class="p-6">Your Savings vs Full-Time</td>
+                                <td class="text-right p-6">$1,500-3,200/mo</td>
+                                <td class="text-right p-6">+20%</td>
+                                <td class="text-right p-6">$30,000-38,400/yr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Industry Stats -->
+            <div class="mt-16 grid md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">89%</div>
+                    <div class="text-sm text-gray-600">Auto Shops Booking Rate</div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">$47K</div>
+                    <div class="text-sm text-gray-600">Avg Med Spa Revenue Increase</div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">3.2x</div>
+                    <div class="text-sm text-gray-600">More HVAC Calls Booked</div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-4xl font-bold text-brand-blue mb-2">67%</div>
+                    <div class="text-sm text-gray-600">Fewer Law Firm Missed Calls</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">© 2024 VoiceCapture AI. All rights reserved.</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="/website/index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="/website/index.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="/website/faq.html" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculator Script -->
+    <script>
+        function roiCalculator() {
+            return {
+                // Inputs
+                industry: 'auto',
+                callsPerDay: 30,
+                missedPercent: 27,
+                avgSaleValue: 500,
+                currentSolution: 'voicemail',
+
+                // Results
+                results: {
+                    monthlyMissedCalls: 0,
+                    bookingRate: 0,
+                    lostRevenue: 0,
+                    annualLoss: 0,
+                    serviceCost: 497,
+                    recoveredRevenue: 0,
+                    netProfit: 0,
+                    roi: 0,
+                    paybackDays: 0
+                },
+
+                init() {
+                    this.calculate();
+                },
+
+                calculate() {
+                    // Industry-specific booking rates
+                    const bookingRates = {
+                        'auto': 45,
+                        'medspa': 60,
+                        'hvac': 55,
+                        'dental': 70,
+                        'legal': 40,
+                        'home-services': 50,
+                        'salon': 65,
+                        'other': 50
+                    };
+
+                    const bookingRate = bookingRates[this.industry] || 50;
+
+                    // Calculate monthly missed calls
+                    const monthlyMissedCalls = Math.round(this.callsPerDay * 30 * (this.missedPercent / 100));
+
+                    // Calculate potential bookings from missed calls
+                    const potentialBookings = Math.round(monthlyMissedCalls * (bookingRate / 100));
+
+                    // Calculate lost revenue
+                    const lostRevenue = Math.round(potentialBookings * this.avgSaleValue);
+
+                    // Calculate annual loss
+                    const annualLoss = lostRevenue * 12;
+
+                    // VoiceCapture AI costs
+                    const serviceCost = 497; // Professional plan
+
+                    // Calculate recovered revenue (assume 99% answer rate)
+                    const recoveredRevenue = Math.round(lostRevenue * 0.99);
+
+                    // Calculate net profit
+                    const netProfit = recoveredRevenue - serviceCost;
+
+                    // Calculate ROI
+                    const roi = serviceCost > 0 ? Math.round(recoveredRevenue / serviceCost) : 0;
+
+                    // Calculate payback period in days
+                    const paybackDays = recoveredRevenue > 0 ? Math.max(1, Math.round((serviceCost / recoveredRevenue) * 30)) : 30;
+
+                    // Update results
+                    this.results = {
+                        monthlyMissedCalls,
+                        bookingRate,
+                        lostRevenue,
+                        annualLoss,
+                        serviceCost,
+                        recoveredRevenue,
+                        netProfit,
+                        roi,
+                        paybackDays
+                    };
+                },
+
+                formatCurrency(amount) {
+                    return '$' + amount.toLocaleString('en-US');
+                }
+            }
+        }
+    </script>
+
+    <!-- Analytics -->
+    <script>
+        // Track calculator usage
+        document.addEventListener('alpine:initialized', () => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_loaded', {
+                    page: 'ROI Calculator'
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
