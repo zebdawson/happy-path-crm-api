@@ -18,7 +18,7 @@ const caseStudies = [
     company: 'SunPower Solutions',
     logo: '/images/clients/sunpower.png',
     challenge:
-      "SunPower was losing 40% of leads due to slow manual follow-up. Their sales team was overwhelmed with incoming calls and couldn\'t respond fast enough to capitalize on hot leads.",
+      "SunPower was losing 40% of leads due to slow manual follow-up. Their sales team was overwhelmed with incoming calls and couldn't respond fast enough to capitalize on hot leads.",
     solution:
       'We implemented our AI voice assistant (Sage) to handle all incoming calls 24/7, integrated with GoHighLevel for seamless lead management and automated follow-up workflows.',
     implementation: [
@@ -36,7 +36,7 @@ const caseStudies = [
     ],
     testimonial: {
       quote:
-        "Happy Path transformed our lead follow-up process. The AI voice assistant responds to inquiries within minutes, and our conversion rate jumped 45%. Best investment we\'ve made.",
+        "Happy Path transformed our lead follow-up process. The AI voice assistant responds to inquiries within minutes, and our conversion rate jumped 45%. Best investment we've made.",
       author: 'Sarah Johnson',
       role: 'CEO, SunPower Solutions',
     },
@@ -48,7 +48,7 @@ const caseStudies = [
     company: 'AquaPure Systems',
     logo: '/images/clients/aquapure.png',
     challenge:
-      "AquaPure was spending over $10K annually on various SaaS tools (CRM, email marketing, automation) that didn\'t integrate well together, causing data silos and inefficiencies.",
+      "AquaPure was spending over $10K annually on various SaaS tools (CRM, email marketing, automation) that didn't integrate well together, causing data silos and inefficiencies.",
     solution:
       "We built a custom all-in-one platform that replaced 5 separate SaaS subscriptions, with custom features tailored to their water filtration business.",
     implementation: [
@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
             Real Results, <span className="gradient-text">Real Impact</span>
           </SectionTitle>
           <SectionDescription>
-            See how we've helped businesses across industries transform their
+            See how we&apos;ve helped businesses across industries transform their
             marketing, save thousands, and grow faster with AI automation.
           </SectionDescription>
         </SectionHeader>
@@ -251,5 +251,3 @@ export default function CaseStudiesPage() {
         </div>
       </Section>
     </div>
-  )
-}
