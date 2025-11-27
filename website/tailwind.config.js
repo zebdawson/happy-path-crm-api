@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // This fixes the "border-border" error
+        // Fixes "border-border"
         border: "hsl(var(--border, 214.3 31.8% 91.4%))", 
         input: "hsl(var(--input, 214.3 31.8% 91.4%))",
         ring: "hsl(var(--ring, 215 20.2% 65.1%))",
@@ -56,6 +56,16 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         display: ['var(--font-jakarta)', 'sans-serif'],
+      },
+      // Fixes "animate-gradient"
+      keyframes: {
+        gradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      animation: {
+        gradient: 'gradient 8s ease infinite',
       },
     },
   },
