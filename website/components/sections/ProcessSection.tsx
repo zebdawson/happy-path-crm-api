@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, SectionTitle, SectionDescription } from '@/components/ui/Section'
-import { FiSearch, FiTool, FiRocket, FiBarChart } from 'react-icons/fi'
+import { FiSearch, FiTool, FiSend, FiBarChart } from 'react-icons/fi'
 
 const steps = [
   {
@@ -23,7 +23,7 @@ const steps = [
     number: '03',
     title: 'Implementation',
     description: 'Seamless execution with minimal disruption to your operations. We handle everything.',
-    icon: FiRocket,
+    icon: FiSend,
     items: ['System setup', 'Integration', 'Content creation', 'Team training'],
   },
   {
