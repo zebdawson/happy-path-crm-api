@@ -23,7 +23,7 @@ const values = [
     icon: FiHeart,
     title: 'Client Success',
     description:
-      'Your growth is our growth. We're not satisfied until you're seeing real, measurable results that transform your business.',
+      "Your growth is our growth. We're not satisfied until you're seeing real, measurable results that transform your business.",
   },
   {
     icon: FiAward,
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <span className="gradient-text">AI-Powered Marketing</span>
           </h1>
           <p className="text-xl md:text-2xl text-dark-300">
-            We're not just another marketing agency. We're your technology partner,
+            We&apos;re not just another marketing agency. We&apos;re your technology partner,
             helping you leverage AI and automation to grow faster and smarter.
           </p>
         </Container>
@@ -77,8 +77,8 @@ export default function AboutPage() {
             </p>
             <p className="text-lg text-dark-300 mb-6">
               Too many businesses are trapped paying thousands for SaaS
-              subscriptions that don't talk to each other, drowning in manual
-              tasks, and missing opportunities because they can't respond fast
+              subscriptions that don&apos;t talk to each other, drowning in manual
+              tasks, and missing opportunities because they can&apos;t respond fast
               enough.
             </p>
             <p className="text-lg text-dark-300">
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             <Card variant="glass" className="glow-effect">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Why We're Different</h3>
+                <h3 className="text-2xl font-bold mb-4">Why We&apos;re Different</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="w-6 h-6 rounded-full bg-accent-cyan flex-shrink-0 flex items-center justify-center mt-0.5">
@@ -124,7 +124,7 @@ export default function AboutPage() {
                       <span className="text-xs">✓</span>
                     </div>
                     <span className="text-dark-300">
-                      We're transparent about pricing, timelines, and results
+                      We&apos;re transparent about pricing, timelines, and results
                     </span>
                   </li>
                 </ul>
@@ -225,7 +225,7 @@ export default function AboutPage() {
             Ready to Start Your Transformation?
           </h2>
           <p className="text-xl text-dark-300 mb-8">
-            Let's discuss how we can help you leverage AI and automation to grow
+            Let&apos;s discuss how we can help you leverage AI and automation to grow
             your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
