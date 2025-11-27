@@ -18,7 +18,7 @@ const caseStudies = [
     company: 'SunPower Solutions',
     logo: '/images/clients/sunpower.png',
     challenge:
-      'SunPower was losing 40% of leads due to slow manual follow-up. Their sales team was overwhelmed with incoming calls and couldn\'t respond fast enough to capitalize on hot leads.',
+      "SunPower was losing 40% of leads due to slow manual follow-up. Their sales team was overwhelmed with incoming calls and couldn\'t respond fast enough to capitalize on hot leads.",
     solution:
       'We implemented our AI voice assistant (Sage) to handle all incoming calls 24/7, integrated with GoHighLevel for seamless lead management and automated follow-up workflows.',
     implementation: [
@@ -36,7 +36,7 @@ const caseStudies = [
     ],
     testimonial: {
       quote:
-        'Happy Path transformed our lead follow-up process. The AI voice assistant responds to inquiries within minutes, and our conversion rate jumped 45%. Best investment we\'ve made.',
+        "Happy Path transformed our lead follow-up process. The AI voice assistant responds to inquiries within minutes, and our conversion rate jumped 45%. Best investment we\'ve made.",
       author: 'Sarah Johnson',
       role: 'CEO, SunPower Solutions',
     },
@@ -48,9 +48,9 @@ const caseStudies = [
     company: 'AquaPure Systems',
     logo: '/images/clients/aquapure.png',
     challenge:
-      'AquaPure was spending over $10K annually on various SaaS tools (CRM, email marketing, automation) that didn\'t integrate well together, causing data silos and inefficiencies.',
+      "AquaPure was spending over $10K annually on various SaaS tools (CRM, email marketing, automation) that didn\'t integrate well together, causing data silos and inefficiencies.",
     solution:
-      'We built a custom all-in-one platform that replaced 5 separate SaaS subscriptions, with custom features tailored to their water filtration business.',
+      "We built a custom all-in-one platform that replaced 5 separate SaaS subscriptions, with custom features tailored to their water filtration business.",
     implementation: [
       'Custom CRM development',
       'Email automation system',
@@ -66,7 +66,7 @@ const caseStudies = [
     ],
     testimonial: {
       quote:
-        'We were spending over $10K annually on various SaaS tools. Happy Path built us a custom solution that does everything we need for a fraction of the cost. The team is incredible.',
+        "We were spending over $10K annually on various SaaS tools. Happy Path built us a custom solution that does everything we need for a fraction of the cost. The team is incredible.",
       author: 'Michael Chen',
       role: 'Marketing Director',
     },
@@ -78,9 +78,9 @@ const caseStudies = [
     company: 'Strategic Growth Partners',
     logo: '/images/clients/strategic.png',
     challenge:
-      'Inconsistent content publishing and low organic reach. The consulting firm struggled to maintain a regular blog schedule and their website traffic had plateaued.',
+      "Inconsistent content publishing and low organic reach. The consulting firm struggled to maintain a regular blog schedule and their website traffic had plateaued.",
     solution:
-      'AI-powered content generation system paired with comprehensive SEO strategy to dominate search results in their niche.',
+      "AI-powered content generation system paired with comprehensive SEO strategy to dominate search results in their niche.",
     implementation: [
       'Content strategy development',
       'AI content generation setup',
@@ -96,7 +96,7 @@ const caseStudies = [
     ],
     testimonial: {
       quote:
-        'The AI content generation has been a game-changer. We went from publishing 2 blog posts a month to 15, and our organic traffic increased by 285%. ROI is off the charts.',
+        "The AI content generation has been a game-changer. We went from publishing 2 blog posts a month to 15, and our organic traffic increased by 285%. ROI is off the charts.",
       author: 'Emily Rodriguez',
       role: 'Founder',
     },
