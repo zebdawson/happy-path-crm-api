@@ -8,7 +8,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Case Studies | Happy Path Marketing',
   description:
-    'Real results from real clients. See how we've helped businesses save thousands and grow faster with AI-powered marketing automation.',
+    "Real results from real clients. See how we've helped businesses save thousands and grow faster with AI-powered marketing automation.",
 }
 
 const caseStudies = [
