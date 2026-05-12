@@ -26,6 +26,8 @@ tags:
     description: Review and reputation automation
   - name: ServicePath
     description: AI workflow automations and client outreach tools
+  - name: Food Tracker
+    description: Voice meal logging, photo confirmation, nutrition coaching, allergy safety, and sale alerts
 
 paths:
   /leads:
@@ -101,7 +103,174 @@ paths:
         "200":
           description: Campaign launched successfully
 
+  /health:
+    get:
+      operationId: getHealth
+      tags: [Food Tracker]
+      summary: Check service health
+      responses:
+        "200":
+          description: Service is healthy
+
+  /food/users:
+    post:
+      operationId: createFoodUser
+      tags: [Food Tracker]
+      summary: Create a food tracking profile with goals, allergies, stores, and notification settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FoodUserCreate'
+      responses:
+        "201":
+          description: Food user created
+
+  /food/users/{user_id}:
+    get:
+      operationId: getFoodUser
+      tags: [Food Tracker]
+      summary: Get a food tracking profile
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Food user returned
+        "404":
+          description: User not found
+
+  /food/entries:
+    post:
+      operationId: createFoodEntry
+      tags: [Food Tracker]
+      summary: Log a spoken meal and request photo confirmation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FoodEntryCreate'
+      responses:
+        "201":
+          description: Food entry created and photo prompt returned
+
+  /food/entries/{entry_id}/photo-confirmation:
+    post:
+      operationId: confirmFoodEntryPhoto
+      tags: [Food Tracker]
+      summary: Confirm recognized foods from a meal photo
+      parameters:
+        - $ref: '#/components/parameters/EntryId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoConfirmation'
+      responses:
+        "200":
+          description: Food entry updated with confirmed foods
+
+  /food/users/{user_id}/entries:
+    get:
+      operationId: listFoodEntries
+      tags: [Food Tracker]
+      summary: List a user's meal history
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Food entries returned
+
+  /food/users/{user_id}/favorites:
+    get:
+      operationId: listFavoriteFoods
+      tags: [Food Tracker]
+      summary: List favorite foods used for personalization and sale alerts
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Favorite foods returned
+    post:
+      operationId: createFavoriteFood
+      tags: [Food Tracker]
+      summary: Save a favorite food and optional store preferences
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FavoriteFoodCreate'
+      responses:
+        "201":
+          description: Favorite food saved
+
+  /food/sales:
+    post:
+      operationId: createFoodSale
+      tags: [Food Tracker]
+      summary: Add a grocery or restaurant sale for matching against favorites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FoodSaleCreate'
+      responses:
+        "201":
+          description: Sale created
+
+  /food/users/{user_id}/sale-alerts:
+    get:
+      operationId: getFoodSaleAlerts
+      tags: [Food Tracker]
+      summary: Find current sales that match favorite foods and stores
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Matching sale alerts returned
+
+  /food/users/{user_id}/meal-suggestions:
+    get:
+      operationId: getMealSuggestions
+      tags: [Food Tracker]
+      summary: Suggest future meals based on goals, allergies, and liked foods
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Personalized meal suggestions returned
+
+  /food/users/{user_id}/coach:
+    get:
+      operationId: getFoodCoach
+      tags: [Food Tracker]
+      summary: Get lean-muscle coaching and allergy-aware recommendations
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        "200":
+          description: Coaching summary returned
+
 components:
+  parameters:
+    UserId:
+      name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+    EntryId:
+      name: entry_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Lead:
       type: object
@@ -171,3 +340,113 @@ components:
           type: array
           items:
             type: string
+
+
+    FoodUserCreate:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        goals:
+          type: object
+          additionalProperties: true
+          example:
+            primary: gain lean muscle
+            protein_grams_per_day: 160
+        allergies:
+          type: array
+          items:
+            type: string
+        favorite_stores:
+          type: array
+          items:
+            type: string
+        notification_preferences:
+          type: object
+          additionalProperties: true
+
+    FoodEntryCreate:
+      type: object
+      required: [user_id, spoken_text]
+      properties:
+        user_id:
+          type: string
+        spoken_text:
+          type: string
+          description: Voice transcription such as "I ate chicken, rice, and broccoli."
+        parsed_foods:
+          type: array
+          items:
+            type: string
+        photo_url:
+          type: string
+          format: uri
+        confirmed_foods:
+          type: array
+          items:
+            type: string
+        liked:
+          type: boolean
+        meal_time:
+          type: string
+          format: date-time
+        location:
+          type: string
+        estimated_nutrition:
+          type: object
+          additionalProperties: true
+        notes:
+          type: string
+
+    PhotoConfirmation:
+      type: object
+      required: [confirmed_foods]
+      properties:
+        photo_url:
+          type: string
+          format: uri
+        confirmed_foods:
+          type: array
+          items:
+            type: string
+        liked:
+          type: boolean
+        estimated_nutrition:
+          type: object
+          additionalProperties: true
+        notes:
+          type: string
+
+    FavoriteFoodCreate:
+      type: object
+      required: [food_name]
+      properties:
+        food_name:
+          type: string
+        store_preferences:
+          type: array
+          items:
+            type: string
+
+    FoodSaleCreate:
+      type: object
+      required: [food_name, store_name]
+      properties:
+        food_name:
+          type: string
+        store_name:
+          type: string
+        store_location:
+          type: string
+        price:
+          type: string
+        sale_ends_at:
+          type: string
+          format: date-time
+        source_url:
+          type: string
+          format: uri
